@@ -1,12 +1,15 @@
 FROM ubuntu:18.04 as base
 
+ARG DEBIAN_FRONTEND=noninteractive 
+
 ENV LLVM_PATH "/llvm-project/"
 ENV SGXMONITOR_PATH "/sgxmonitor-src"
 ENV ROPGADGET_PATH "/ROPgadget"
 
-RUN apt update && apt -y install cmake git clang build-essential libssl-dev neovim curl wget
-RUN apt install -y build-essential ocaml ocamlbuild automake autoconf libtool wget python libssl-dev git cmake perl
-RUN apt install -y libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev debhelper cmake reprepro unzip lsb-release
+RUN apt-get update && apt -y install cmake git clang build-essential libssl-dev neovim curl wget
+RUN apt-get install -y build-essential ocaml ocamlbuild automake autoconf libtool wget python libssl-dev git cmake perl
+RUN apt-get install -y libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev debhelper cmake reprepro unzip lsb-release
+RUN apt-get install -y postgresql postgresql-server-dev-all nasm
 
 # Install LLVM the version I need
 RUN git clone https://github.com/llvm/llvm-project.git
