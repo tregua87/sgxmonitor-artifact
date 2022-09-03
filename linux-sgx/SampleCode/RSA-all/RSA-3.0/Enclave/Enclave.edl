@@ -1,0 +1,14 @@
+enclave {
+    // from "sgx_tae_service.edl" import *;
+
+    trusted {
+         public void rsa_init(void);
+         public void rsa_enc(void);
+         public void rsa_dec(void);
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char *str);
+    };
+
+};

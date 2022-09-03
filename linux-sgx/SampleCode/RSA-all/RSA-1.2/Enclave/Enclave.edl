@@ -1,0 +1,19 @@
+enclave {
+    trusted {
+        public void rsa_encrypt([in, size=pt_len] const unsigned char* pt, size_t pt_len,
+                                [user_check] unsigned char* ct, [user_check] size_t *ct_len);
+        public void rsa_get_public([user_check] unsigned int* n,
+                                  [user_check] unsigned int* e);
+        public void rsa_import_and_encrypt([user_check] unsigned int* n,
+                                  [user_check] unsigned int* e,
+                                  [in, size=pt_len] const unsigned char* pt, size_t pt_len,
+                                  [user_check] unsigned char* ct, [user_check] size_t *ct_len);
+
+        public void rsa_multiple_keys(void);
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char *str);
+    };
+
+};

@@ -1,0 +1,18 @@
+enclave {
+    include "Async_Bucket.h"
+
+    from "sgx_tstdc.edl" import sgx_thread_wait_untrusted_event_ocall, sgx_thread_set_untrusted_event_ocall, sgx_thread_setwait_untrusted_events_ocall, sgx_thread_set_multiple_untrusted_events_ocall;
+
+    trusted {
+         /* public void setBA(unsigned long basic_address); */
+         public void setBucket([user_check] bucket_t *b);
+         public void setActionCounter([user_check] int *ac);
+         public void bootSecureCommunication(void);
+         public void makeEndMsg();
+    };
+
+    untrusted {
+        void ocall_monitorgatewayu([in, count=lenI] const char *strI, size_t lenI, [out, count=lenO] char *strO, size_t lenO);
+    };
+
+};

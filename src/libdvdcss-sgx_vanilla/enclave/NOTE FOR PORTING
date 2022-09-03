@@ -1,0 +1,8 @@
+
+# secure functions:
+[DONE] dvdcss_test
+[DONE] dvdcss_title
+[DONE] dvdcss_disckey (internal/external)
+[DONE] dvdcss_unscramble
+
+# all pointers as [user_check]

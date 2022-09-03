@@ -1,0 +1,13 @@
+<topdir>/external/ippcp_internal/inc/ippcp.h
+<topdir>/external/ippcp_internal/inc/ippcpdefs.h
+<topdir>/external/ippcp_internal/inc/ippversion.h
+<topdir>/external/ippcp_internal/inc/sgx_ippcp.h
+<topdir>/external/ippcp_internal/lib/linux/ia32/libippcp.a
+<topdir>/external/ippcp_internal/lib/linux/intel64/libippcp.a
+<topdir>/external/libirc/efi2/libirc.a
+<topdir>/external/libirc/ia32/libirc.a
+<topdir>/external/libm/Libm_ct_Linux/libimf.a
+<topdir>/external/libm/Libm_Linux/libimf.a
+<topdir>/external/libm/SVML_IA32_Linux/libsvml.a
+<topdir>/external/libm/SVML_Intel64_Linux/libsvml.a
+

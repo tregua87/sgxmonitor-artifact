@@ -1,0 +1,28 @@
+mov eax, dword ptr [rcx] ; ret // mov eax, dword ptr [rsp - 0x18] ; ret
+neg eax ; ret
+adc bl, dh ; ret # bl => RBX
+mov eax, ebx ; pop rbx ; ret # here: eax = 1|0
+
+
+
+
+and eax, edx ; ret
+xchg rax, rsp ; ret 0x80
+
+
+
+
+
+adc esi, esi ; ret
+add esp, eax ; ret
+add rax, r10 ; ret
+and rax, rdx ; leave ; ret
+mov eax, dword ptr [rcx] ; ret
+mov eax, esi ; mov rcx, rdi ; jne 0x70d8 ; ret
+mov eax, esi ; ret
+mov edx, esi ; and eax, edx ; pop rbp ; ret
+mov rax, rbx ; pop rbx ; pop rbp ; ret
+mov rax, rdx ; pop rbx ; ret
+neg eax ; ret
+sub eax, edi ; ret
+# sub eax, esi ; sub rax, 1 ; ret

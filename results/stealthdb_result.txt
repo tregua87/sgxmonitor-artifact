@@ -1,0 +1,26 @@
+# SGXMONITOR
+
+transaction type: ../stealthdb_vanilla/benchmark/custom/first_script.sql
+scaling factor: 1
+query mode: simple
+number of clients: 1
+number of threads: 1
+number of transactions per client: 10
+number of transactions actually processed: 10/10
+latency average = 17.529 ms
+tps = 57.047965 (including connections establishing)
+tps = 57.842017 (excluding connections establishing)
+
+# VANILLA
+
+transaction type: ./benchmark/custom/first_script.sql
+scaling factor: 1
+query mode: simple
+number of clients: 1
+number of threads: 1
+number of transactions per client: 10
+number of transactions actually processed: 10/10
+latency average = 13.007 ms
+tps = 76.879988 (including connections establishing)
+tps = 78.274105 (excluding connections establishing)
+

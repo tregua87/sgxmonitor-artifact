@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<parameters>
+	
+    <!-- Connection details -->
+    <dbtype>postgres</dbtype>
+    <driver>org.postgresql.Driver</driver>
+    <DBUrl>jdbc:postgresql://localhost:5432/test_16</DBUrl>
+    <username>test</username>
+    <password>password</password>
+    <isolation>TRANSACTION_READ_COMMITTED</isolation>
+    
+    <!-- Scale factor is the number of warehouses in TPCC -->
+    <scalefactor>16</scalefactor>
+
+	<loaderThreads>2</loaderThreads>
+
+    <!-- The workload -->
+    <terminals>1</terminals>
+    <works>
+        <work>
+		  <loaderThreads>1</loaderThreads>
+          <!-- <time>1</time>
+          <rate>1</rate> -->
+		  <time>120</time>
+          <rate>10000</rate>
+          <ratelimited bench="tpcc">true</ratelimited>
+          <weights>45,43,4,4,4</weights>
+		  <!-- <weights>1</weights> -->
+        </work>
+	</works>`
+	
+	<!-- TPCC specific -->  
+   	<transactiontypes>
+    	<transactiontype>
+    		<name>NewOrder</name>
+    	</transactiontype>
+    	<transactiontype>
+    		<name>Payment</name>
+    	</transactiontype>
+    	<transactiontype>
+    		<name>OrderStatus</name>
+    	</transactiontype>
+    	<transactiontype>
+    		<name>Delivery</name>
+    	</transactiontype>
+    	<transactiontype>
+    		<name>StockLevel</name>
+    	</transactiontype>
+   	</transactiontypes>	
+</parameters>

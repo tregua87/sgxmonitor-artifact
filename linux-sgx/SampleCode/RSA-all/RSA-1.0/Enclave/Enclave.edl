@@ -1,0 +1,11 @@
+enclave {
+    trusted {
+         public void hello1(void);
+         public void rsa_test(void);
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char *str);
+    };
+
+};

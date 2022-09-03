@@ -1,0 +1,127 @@
+printf	/home/flavio/linux-sgx/SampleCode/LogCf-6/EnclaveT/Enclave.cpp	/^int printf(const char* fmt, ...)$/;"	function	line:52	signature:(const char* fmt, ...)
+hello1	/home/flavio/linux-sgx/SampleCode/LogCf-6/EnclaveT/Enclave.cpp	/^void hello1()$/;"	function	line:63	signature:()
+__CRYPTO_UTILS_H_	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define __CRYPTO_UTILS_H_$/;"	macro	line:3
+OPT_KEY_SIZE_BYTE	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define OPT_KEY_SIZE_BYTE /;"	macro	line:5
+OPT_KEY_MAC_SIZE_BYTE	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define OPT_KEY_MAC_SIZE_BYTE /;"	macro	line:6
+REF_NONCE_SIZE	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_NONCE_SIZE /;"	macro	line:8
+REF_RSA_OAEP_3072_MOD_SIZE	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_RSA_OAEP_3072_MOD_SIZE /;"	macro	line:10
+REF_RSA_OAEP_3072_EXP_SIZE	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_RSA_OAEP_3072_EXP_SIZE /;"	macro	line:11
+REF_N_SIZE_IN_BYTES	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_N_SIZE_IN_BYTES /;"	macro	line:13
+REF_E_SIZE_IN_BYTES	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_E_SIZE_IN_BYTES /;"	macro	line:14
+REF_D_SIZE_IN_BYTES	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_D_SIZE_IN_BYTES /;"	macro	line:15
+REF_P_SIZE_IN_BYTES	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_P_SIZE_IN_BYTES /;"	macro	line:16
+REF_Q_SIZE_IN_BYTES	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_Q_SIZE_IN_BYTES /;"	macro	line:17
+REF_DMP1_SIZE_IN_BYTES	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_DMP1_SIZE_IN_BYTES /;"	macro	line:18
+REF_DMQ1_SIZE_IN_BYTES	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_DMQ1_SIZE_IN_BYTES /;"	macro	line:19
+REF_IQMP_SIZE_IN_BYTES	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_IQMP_SIZE_IN_BYTES /;"	macro	line:20
+REF_N_SIZE_IN_UINT	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_N_SIZE_IN_UINT /;"	macro	line:22
+REF_E_SIZE_IN_UINT	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_E_SIZE_IN_UINT /;"	macro	line:23
+REF_D_SIZE_IN_UINT	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_D_SIZE_IN_UINT /;"	macro	line:24
+REF_P_SIZE_IN_UINT	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_P_SIZE_IN_UINT /;"	macro	line:25
+REF_Q_SIZE_IN_UINT	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_Q_SIZE_IN_UINT /;"	macro	line:26
+REF_DMP1_SIZE_IN_UINT	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_DMP1_SIZE_IN_UINT /;"	macro	line:27
+REF_DMQ1_SIZE_IN_UINT	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_DMQ1_SIZE_IN_UINT /;"	macro	line:28
+REF_IQMP_SIZE_IN_UINT	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define REF_IQMP_SIZE_IN_UINT /;"	macro	line:29
+_ref_rsa_params_t	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^typedef struct _ref_rsa_params_t {$/;"	struct	line:31
+n	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^    unsigned int n[REF_N_SIZE_IN_UINT];$/;"	member	line:32	struct:_ref_rsa_params_t
+e	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^    unsigned int e[REF_E_SIZE_IN_UINT];$/;"	member	line:33	struct:_ref_rsa_params_t
+d	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^    unsigned int d[REF_D_SIZE_IN_UINT];$/;"	member	line:34	struct:_ref_rsa_params_t
+p	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^    unsigned int p[REF_P_SIZE_IN_UINT];$/;"	member	line:35	struct:_ref_rsa_params_t
+q	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^    unsigned int q[REF_Q_SIZE_IN_UINT];$/;"	member	line:36	struct:_ref_rsa_params_t
+dmp1	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^    unsigned int dmp1[REF_DMP1_SIZE_IN_UINT];$/;"	member	line:37	struct:_ref_rsa_params_t
+dmq1	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^    unsigned int dmq1[REF_DMQ1_SIZE_IN_UINT];$/;"	member	line:38	struct:_ref_rsa_params_t
+iqmp	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^    unsigned int iqmp[REF_IQMP_SIZE_IN_UINT];$/;"	member	line:39	struct:_ref_rsa_params_t
+ref_rsa_params_t	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^}ref_rsa_params_t;$/;"	typedef	line:40	typeref:struct:_ref_rsa_params_t
+g_rsa_key	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^ref_rsa_params_t g_rsa_key = { 0 };$/;"	variable	line:42
+PRINT_ARR	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define PRINT_ARR(/;"	macro	line:46
+PRINT_ARR_2	/home/flavio/linux-sgx/SampleCode/LogCf-6/Include/crypto_utils.h	/^#define PRINT_ARR_2(/;"	macro	line:51
+EDGE_SIZE	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^#define EDGE_SIZE /;"	macro	line:15	file:
+ba	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^unsigned long ba = 0x0;$/;"	variable	line:17
+n	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^static unsigned int n[REF_N_SIZE_IN_UINT] = { 0 };$/;"	variable	line:19	file:
+e	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^static unsigned int e[REF_E_SIZE_IN_UINT] = { 0 };$/;"	variable	line:20	file:
+rsa_pub_key	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^static void* rsa_pub_key;$/;"	variable	line:22	file:
+OPT_KEY_SIZE_BYTE	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^#define OPT_KEY_SIZE_BYTE /;"	macro	line:24	file:
+OPT_KEY_MAC_SIZE_BYTE	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^#define OPT_KEY_MAC_SIZE_BYTE /;"	macro	line:25	file:
+opt_key	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^unsigned char opt_key[OPT_KEY_SIZE_BYTE] = { 0 };$/;"	variable	line:27
+nonce	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^static unsigned char nonce[REF_NONCE_SIZE] = { 0 };$/;"	variable	line:28	file:
+pub_bucket	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^static bucket* pub_bucket;$/;"	variable	line:30	file:
+printf_2	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^int printf_2(const char* fmt, ...)$/;"	function	line:36	signature:(const char* fmt, ...)
+makeEndMsg	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^void makeEndMsg() {$/;"	function	line:47	signature:()
+setBucket	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^void setBucket(bucket *b) {$/;"	function	line:93	signature:(bucket *b)
+bootSecureCommunication	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^void bootSecureCommunication(void) {$/;"	function	line:99	signature:(void)
+traceedgec	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^void traceedgec(void* to) {$/;"	function	line:121	signature:(void* to)
+setBA	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^void setBA(unsigned long basic_address) {$/;"	function	line:176	signature:(unsigned long basic_address)
+global_mutex	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^static sgx_thread_mutex_t global_mutex = SGX_THREAD_MUTEX_INITIALIZER;$/;"	variable	line:180	file:
+writeToBuffer	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^void writeToBuffer(unsigned char *str, size_t str_len, entry_status A_COLOR) {$/;"	function	line:182	signature:(unsigned char *str, size_t str_len, entry_status A_COLOR)
+nextNonce	/home/flavio/linux-sgx/SampleCode/LogCf-6/Tracer/T-Tracer.cpp	/^void nextNonce() {$/;"	function	line:205	signature:()
+pub_bucket	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^static bucket pub_bucket;$/;"	variable	line:29	file:
+TOKEN_FILENAME	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^# define TOKEN_FILENAME /;"	macro	line:32	file:
+ENCLAVE_FILENAME	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^# define ENCLAVE_FILENAME /;"	macro	line:33	file:
+global_eid	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^sgx_enclave_id_t global_eid;    \/* global enclave *\/$/;"	variable	line:35
+ret	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^int ret;$/;"	variable	line:43
+nap_time	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^double nap_time = 0.01;$/;"	variable	line:44
+exit_loop	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^short exit_loop = false;$/;"	variable	line:45
+receiver_client	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^void *receiver_client(void *arg) {$/;"	function	line:46	signature:(void *arg)
+ocall_print_string	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^void ocall_print_string(const char *str) {printf("%s", str);} \/\/ OCALL to print$/;"	function	line:61	signature:(const char *str)
+makeInitMessage	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^void makeInitMessage(char* buffer, size_t buffer_len, unsigned char* k,$/;"	function	line:63	signature:(char* buffer, size_t buffer_len, unsigned char* k, size_t k_len, unsigned char* nonce, size_t nonce_len)
+initialize_enclave	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^int initialize_enclave(void)$/;"	function	line:85	signature:(void)
+report	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^void report(const char* msg, int terminate) {$/;"	function	line:100	signature:(const char* msg, int terminate)
+WAITING	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^#define WAITING /;"	macro	line:105	file:
+RECEDGE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^#define RECEDGE /;"	macro	line:106	file:
+monitor_status	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^char monitor_status = WAITING;$/;"	variable	line:108
+main	/home/flavio/linux-sgx/SampleCode/LogCf-8/Monitor/Monitor.cpp	/^int main() {$/;"	function	line:112	signature:()
+MAX_PATH	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^# define MAX_PATH /;"	macro	line:39	file:
+b	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^static bucket b;$/;"	variable	line:59	file:
+sockfd	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^int sockfd;$/;"	variable	line:68
+global_eid	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^sgx_enclave_id_t global_eid = 0;$/;"	variable	line:70
+initialize_client	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^int initialize_client(void)$/;"	function	line:73	signature:(void)
+initilize_ra	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^int initilize_ra() {$/;"	function	line:109	signature:()
+initialize_enclave	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^int initialize_enclave(void)$/;"	function	line:125	signature:(void)
+ocall_print_string	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^void ocall_print_string(const char *str)$/;"	function	line:141	signature:(const char *str)
+ocall_monitorgatewayu	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^void ocall_monitorgatewayu(const char *strI, size_t lenI,$/;"	function	line:149	signature:(const char *strI, size_t lenI, char *strO, size_t lenO)
+PRINT_ARR	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^    #define PRINT_ARR(/;"	macro	line:162	file:
+ret	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^int ret;$/;"	variable	line:174
+nap_time	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^double nap_time = 0.01;$/;"	variable	line:175
+send_client	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^void *send_client(void *arg) {$/;"	function	line:176	signature:(void *arg)
+main	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^int SGX_CDECL main(int argc, char *argv[])$/;"	function	line:205	signature:(int argc, char *argv[])
+getEnclaveBaseAddress	/home/flavio/linux-sgx/SampleCode/LogCf-8/App/App.cpp	/^unsigned long getEnclaveBaseAddress() {$/;"	function	line:271	signature:()
+__ASYNC_BUCKET_H_	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^#define __ASYNC_BUCKET_H_$/;"	macro	line:5
+SENDER_USE_BUFFER	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^#define SENDER_USE_BUFFER /;"	macro	line:7
+RECEIVER_USE_BUFFER	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^#define RECEIVER_USE_BUFFER /;"	macro	line:8
+BUCKET_SIZE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^#define BUCKET_SIZE /;"	macro	line:10
+ENTRY_SIZE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^#define ENTRY_SIZE /;"	macro	line:11
+_entry_status	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^typedef enum _entry_status {WHITE, GRAY, BLACK, RED} entry_status;$/;"	enum	line:14
+WHITE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^typedef enum _entry_status {WHITE, GRAY, BLACK, RED} entry_status;$/;"	enumerator	line:14	enum:_entry_status
+GRAY	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^typedef enum _entry_status {WHITE, GRAY, BLACK, RED} entry_status;$/;"	enumerator	line:14	enum:_entry_status
+BLACK	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^typedef enum _entry_status {WHITE, GRAY, BLACK, RED} entry_status;$/;"	enumerator	line:14	enum:_entry_status
+RED	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^typedef enum _entry_status {WHITE, GRAY, BLACK, RED} entry_status;$/;"	enumerator	line:14	enum:_entry_status
+entry_status	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^typedef enum _entry_status {WHITE, GRAY, BLACK, RED} entry_status;$/;"	typedef	line:14	typeref:enum:_entry_status
+_bucket_entry	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^typedef struct _bucket_entry {$/;"	struct	line:16
+status	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^  entry_status status;$/;"	member	line:17	struct:_bucket_entry
+buf	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^  unsigned char buf[ENTRY_SIZE];$/;"	member	line:18	struct:_bucket_entry
+bucket_entry	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^} bucket_entry;$/;"	typedef	line:19	typeref:struct:_bucket_entry
+_bucket	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^typedef struct _bucket {$/;"	struct	line:21
+idx	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^  unsigned long idx; \/\/ index of the current bucket entry$/;"	member	line:22	struct:_bucket
+size	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^  size_t size; \/\/ bucket size$/;"	member	line:23	struct:_bucket
+entries	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^  bucket_entry entries[BUCKET_SIZE];$/;"	member	line:24	struct:_bucket
+bucket	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^} bucket;$/;"	typedef	line:25	typeref:struct:_bucket
+INIT_BUCKET	/home/flavio/linux-sgx/SampleCode/LogCf-8/Include/async_bucket.h	/^#define INIT_BUCKET(/;"	macro	line:28
+EDGE_SIZE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^#define EDGE_SIZE /;"	macro	line:15	file:
+ba	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^unsigned long ba = 0x0;$/;"	variable	line:17
+n	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static unsigned int n[REF_N_SIZE_IN_UINT] = { 0 };$/;"	variable	line:19	file:
+e	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static unsigned int e[REF_E_SIZE_IN_UINT] = { 0 };$/;"	variable	line:20	file:
+rsa_pub_key	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static void* rsa_pub_key;$/;"	variable	line:22	file:
+OPT_KEY_SIZE_BYTE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^#define OPT_KEY_SIZE_BYTE /;"	macro	line:24	file:
+OPT_KEY_MAC_SIZE_BYTE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^#define OPT_KEY_MAC_SIZE_BYTE /;"	macro	line:25	file:
+opt_key	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^unsigned char opt_key[OPT_KEY_SIZE_BYTE] = { 0 };$/;"	variable	line:27
+nonce	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static unsigned char nonce[REF_NONCE_SIZE] = { 0 };$/;"	variable	line:28	file:
+pub_bucket	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static bucket* pub_bucket;$/;"	variable	line:30	file:
+printf_2	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^int printf_2(const char* fmt, ...)$/;"	function	line:36	signature:(const char* fmt, ...)
+makeEndMsg	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void makeEndMsg() {$/;"	function	line:47	signature:()
+setBucket	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void setBucket(bucket *b) {$/;"	function	line:93	signature:(bucket *b)
+bootSecureCommunication	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void bootSecureCommunication(void) {$/;"	function	line:99	signature:(void)
+traceedgec	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void traceedgec(void* to) {$/;"	function	line:123	signature:(void* to)
+setBA	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void setBA(unsigned long basic_address) {$/;"	function	line:179	signature:(unsigned long basic_address)
+global_mutex	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static sgx_thread_mutex_t global_mutex = SGX_THREAD_MUTEX_INITIALIZER;$/;"	variable	line:183	file:
+writeToBuffer	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void writeToBuffer(unsigned char *str, size_t str_len, entry_status A_COLOR) {$/;"	function	line:185	signature:(unsigned char *str, size_t str_len, entry_status A_COLOR)
+nextNonce	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void nextNonce() {$/;"	function	line:208	signature:()

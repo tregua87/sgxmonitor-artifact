@@ -1,0 +1,21 @@
+enclave {
+    include "async_bucket.h"
+
+    from "sgx_tstdc.edl" import sgx_thread_wait_untrusted_event_ocall, sgx_thread_set_untrusted_event_ocall, sgx_thread_setwait_untrusted_events_ocall, sgx_thread_set_multiple_untrusted_events_ocall;
+
+    trusted {
+      public void generateSecrets([user_check] unsigned char* k,
+                                  [user_check] unsigned char* nonce);
+      public void decrypt([in, size=b_len] unsigned char *b, size_t b_len,
+                          [out, size=1] char *res);
+      public void printModel();
+
+      public void startConsumer();
+      public void setBucket([user_check]bucket* b, [user_check] short* exit_loop);
+    };
+
+    untrusted {
+      void ocall_print_string([in, string] const char *str);
+    };
+
+};

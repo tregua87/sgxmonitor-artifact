@@ -1,0 +1,48 @@
+enclave {
+
+    from "../../tracer/Tracer.edl" import *;
+
+    trusted {
+        public int sec_dvdcss_test( [user_check]void* dvdcss );
+        public int sec_dvdcss_title ( [user_check]void* dvdcss, int i_block );
+        public int sec_dvdcss_unscramble( [user_check]uint8_t* p_key, [user_check]uint8_t *p_sec );
+        public int sec_dvdcss_disckey([user_check]void* dvdcss);
+        public void hello();
+    };
+
+    untrusted {
+
+        // for ioctl
+        int wrap_ioctl_ReadCopyright( int i_fd, int i_layer, [in,out,size=4]int *pi_copyright);
+        int wrap_ioctl_ReportRPC( int i_fd, [user_check]int *p_type, [user_check]int *p_mask, [user_check]int *p_scheme );
+        int wrap_ioctl_InvalidateAgid( int i_fd, [user_check]int *pi_agid );
+        int wrap_ioctl_ReadTitleKey( int i_fd, [user_check]  int *pi_agid, int i_pos, [user_check] uint8_t *p_key );
+        int wrap_ioctl_ReportASF( int i_fd, [user_check]int *pi_asf );
+        int wrap_ioctl_SendKey2( int i_fd, [user_check] int *pi_agid, [user_check] uint8_t *p_key );
+        int wrap_ioctl_ReportChallenge( int i_fd, [user_check] int *pi_agid, [user_check]uint8_t *p_challenge );
+        int wrap_ioctl_ReportKey1( int i_fd, [user_check]int *pi_agid, [out, in, size=10]uint8_t *p_key);
+        int wrap_ioctl_SendChallenge( int i_fd, [user_check] int *pi_agid, [out, in, size=10]uint8_t *p_challenge );
+        int wrap_ioctl_ReportAgid( int i_fd, [user_check]int *pi_agid );
+        int wrap_ioctl_ReadDiscKey( int i_fd, [user_check] int *pi_agid, [user_check]uint8_t *p_key );
+
+        // raw file handlers
+        int raw_pf_seek ( [user_check] void* self, [user_check] void* dvdcss, int pos);
+        int raw_pf_read ( [user_check] void* self, [user_check] void* dvdcss, [user_check] void *buff, int pos);
+
+        // file interaction
+        int open_u([in, string]char *path, int flags);
+        int open2_u([in, string]char *path, int flags, int flags2);
+        int read_u(int fd, [out, size=nbyte]void *buf, size_t nbyte);
+        int close_u(int fd );
+        int write_u(int fd, [in, size=nbyte]void *buf, size_t nbyte);
+
+        // device interaction
+        int  dvdcss_open_device_u( [user_check] void* dvdcss);
+        int  dvdcss_close_device_u( [user_check] void* dvdcss);
+        int  dvdcss_read_u( [user_check] void* dvdcss, [user_check] void *p_buffer, int i_blocks, int i_flags);
+
+        // to print stuffs
+        void ocall_print_string([in, string] const char *str);
+    };
+
+};

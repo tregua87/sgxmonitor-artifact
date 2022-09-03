@@ -1,0 +1,17 @@
+enclave {
+
+    // #include "aes.h"
+
+    trusted {
+        public int aes_encrypt_ccm([in, size=payload_len] const char* payload, unsigned int payload_len, [in, size=assoc_len] const char* assoc,   
+                                    unsigned short assoc_len, [in, size=nonce_len] const char* nonce, unsigned short nonce_len,
+                                    char* out, unsigned int *out_len, unsigned int mac_len);
+
+        public int set_aes_key([in, size=keysize_par] const char *key_str_par, unsigned int keysize_par);
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char *str);
+    };
+
+};

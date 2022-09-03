@@ -1,0 +1,520 @@
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+SELECT stop_extention(1);
+quit
+SELECT stop_extention(1);
+quit
+;
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+CREATE EXTENSION encdb;
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+quit
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+CREATE EXTENSION encdb;
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+CREATE EXTENSION encdb;
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT launch();
+SELECT stop_extention();
+quit
+\quit
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT generate_key();1
+SELECT generate_key();
+SELECT generate_key();
+SELECT stop_extention();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT launch();
+SELECT generate_key();
+SELECT stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+CREATE EXTENSION encdb;
+SELECT generate_key();
+SELECT stop_extention();
+DROP EXTENSION encdb CASCADE;
+exit
+\quit
+CREATE USER test WITH PASSWORD 'password';
+CREATE DATABASE test;\
+CREATE DATABASE test;
+\c test;
+CREATE EXTENSION encdb;
+\quit
+\quit
+\sc 
+\schema
+\l
+\dt
+\dt
+\dt
+select table_name, pg_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema 
+= 'public' order by 2
+select table_name, pg_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema = 'public' order by 2;
+select table_name, pg_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema = 'public' order by 2;
+select table_name, pg_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema = 'public' order by 2;
+select table_name, pg_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema = 'public' order by 2;
+select table_name, pg_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema = 'public' order by 2;
+select table_name, pg_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema = 'public' order by 2;
+\quit
+l
+\dt
+\c test;
+DROP DATABASE test WITH (FORCE);
+DROP DATABASE test WITH (FORCE);
+DROP DATABASE test;
+DROP DATABASE test FORCE;
+\c postgres 
+DROP DATABASE test FORCE;
+DROP DATABASE test;
+\l
+\quit
+CREATE DATABASE test;
+\c test;
+CREATE EXTENSION encdb;
+\quit
+ALTER DATABASE test SET log_statement = 'all';
+\quit
+ALTER DATABASE test SET log_statement = 'all';
+\dt
+select count(*) from customer;
+select count(*) from district;
+select count(*) from warehouse;
+select count(*) from stock;
+select count(*) from item;
+\quit
+SELECT pg_enc_int4_encrypt(1) + pg_enc_int4_encrypt(2);
+SELECT pg_enc_int4_decrypt(pg_enc_int4_encrypt(1) + pg_enc_int4_encrypt(2));
+select stop_extention();
+\quit
+DROP EXTENSION encdb CASCADE;
+\u postgres
+\?
+quit
+\quit
+DROP EXTENSION encdb CASCADE;
+\c test
+DROP EXTENSION encdb CASCADE;
+\quit
+\l
+drop database test
+\l
+drop database test;
+DROP DATDABASE test;
+DROP DATABASE test;
+\l
+\c test
+\quit
+CREATE EXTENSION encdb;
+DROP EXTENSION encdb;
+CREATE EXTENSION encdb;
+SELECT generate_key();
+quit
+\quit
+CREATE USER test WITH PASSWORD 'password';
+CREATE DATABASE test;
+\c test
+CREATE EXTENSION encdb;
+\quit
+DROP DATABASE test;
+\quit
+CREATE DATABASE test;
+\quit
+CREATE EXTENSION encdb;
+\quit
+\l
+\dt
+\quit
+\c
+\dt
+\d order_line
+\quit
+SHOW EXTENTIONS;
+\dx
+\quit
+\l
+\dt
+\d pgbench_accounts
+\d pgbench_branches
+\dx
+select count(*) pgbench_accounts;
+select * pgbench_accounts
+;
+select * pgbench_accounts;
+select * from pgbench_accounts;
+select count(*) from pgbench_accounts;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+select enable_debug_mode(1)
+;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+\d pgbench_branches
+select pg_enc_int4_encrypt(9808);
+\c postgres 
+\U postgres
+\u postgres
+\? postgres
+\c test test
+\c postgres postgres 
+DROP DATABASE test
+;
+select pg_enc_int4_encrypt(9808);
+\c test
+select pg_enc_int4_encrypt(9808);
+select * from pgbench_branches limit 2;
+select bix, * from pgbench_branches where  limit 2;
+update pgbench_branches set bbalanca = 1 where bid = 1
+;
+update pgbench_branches set bbalance = 1 where bid = 1
+;
+update pgbench_branches set bbalance = balance + 1 where bid = 1;
+update pgbench_branches set bbalance = bbalance + 1 where bid = 1;
+UPDATE pgbench_branches SET bbalance = bbalance + 1792 where bid = 1;
+select * from pgbench_branches where bid = 1;
+\dt
+drop table pgbench_*;
+\c test test
+\quit
+create database test;
+\quit
+select count(*) from pgbench_accounts;
+\dt pgbench_accounts 
+\d pgbench_accounts 
+\dx
+create extention encdb
+;
+CREATE EXTENTION encdb
+;
+CREATE EXTENTION encdb;
+CREATE EXTENSION encdb;
+\c test postgres 
+CREATE EXTENSION encdb;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+DELETE from pgbench_branches;
+select * from pgbench_branches;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+\d pgbench_branches
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+DELETE from pgbench_branches;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+\set aid
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+select * from pgbench_branches limit 10;
+select * from pgbench_branches limit 10;
+select * from pgbench_branches
+;
+\dt
+\c postgres postgres 
+drop database test;
+create database test
+;
+\c test test
+select count(*) from pgbench_branches;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+create extension encdb;
+\c test postgres 
+create extension encdb;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4;
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4  USING pg_enc_int4_encrypt(bbalance);
+select * from pgbench_branches;
+UPDATE pgbench_branches SET bbalance = bbalance + 3899 where bid = 1;
+UPDATE pgbench_branches SET bbalance = 3899 where bid = 1;
+UPDATE pgbench_branches SET bbalance = bbalance + pg_enc_int4_encrypt(3899) where bid = 1;
+select enable_debug_mode(1);
+UPDATE pgbench_branches SET bbalance = bbalance + 3899 where bid = 1;
+UPDATE pgbench_branches SET bbalance = bbalance + (int4)3899 where bid = 1;
+UPDATE pgbench_branches SET bbalance = bbalance + (int4)(3899) where bid = 1;
+UPDATE pgbench_branches SET bbalance = bbalance + cast(3899 as int4) where bid = 1;
+UPDATE pgbench_branches SET bbalance = bbalance + CAST(3899 as int4) where bid = 1;
+\t
+\dt
+select count(*) from pgbench_accounts;
+\d pgbench_accounts
+ALTER TABLE pgbench_accounts ALTER COLUMN abalance TYPE enc_int4  USING pg_enc_int4_encrypt(abalance);
+select count(*) from pgbench_accounts;
+drop table pgbench_accounts;
+drop table pgbench_branches;
+drop table pgbench_history;
+drop table pgbench_tellers;
+\quit
+ALTER TABLE pgbench_accounts ALTER COLUMN abalance TYPE enc_int4  USING pg_enc_int4_encrypt(abalance);
+drop extension encdb cascade;
+\t
+\td
+\dt
+\d pgbench_accounts
+create extension encdb;
+create extension encdb;
+drop extension encdb cascade;
+create extension encdb;
+create extension encdb;
+\quit
+create extension encdb
+;
+\dt
+ALTER TABLE pgbench_accounts ALTER COLUMN abalance TYPE enc_int4  USING pg_enc_int4_encrypt(abalance);
+ALTER TABLE pgbench_accounts ALTER COLUMN abalance TYPE enc_int4  USING pg_enc_int4_encrypt(abalance);
+\d pgbench_accounts
+\d pgbench_accounts
+ALTER TABLE pgbench_accounts ALTER COLUMN abalance TYPE enc_int4  USING pg_enc_int4_encrypt(abalance);
+\quit
+drop extension encdb;
+drop extension encdb cascade;
+create extension encdb;
+select launch();
+select stop_extension();
+select stop_extention();
+drop extension encdb;
+\quit
+create extension encdb;
+drop function stop_extention;
+drop function stop_extention();
+\dx
+\quit
+create extension encdb;
+\quit
+create extension encdb;
+\dt
+select count(*) from pgbench_accounts;
+\d pgbench_accounts
+select pg_enc_int4_encrypt(10);
+\quit
+\dx
+select pg_enc_int4_encrypt(10);
+ALTER TABLE pgbench_accounts ALTER COLUMN abalance TYPE enc_int4  USING pg_enc_int4_encrypt(abalance);
+select stop_extension();
+\quit
+select stop_extension();
+select stop_extension();
+\quiit
+\quit
+select stop_extension();
+\quit
+\dx
+\dt
+\d pgbench_branches
+ALTER TABLE pgbench_branches ALTER COLUMN bbalance TYPE enc_int4  USING pg_enc_int4_encrypt(bbalance);
+\quit
+\dt
+\d pgbench_history
+ALTER TABLE pgbench_history ALTER COLUMN delta TYPE enc_int4  USING pg_enc_int4_encrypt(delta);
+select stop_extension();
+\dt
+\d pgbench_tellers
+\quit
+\dt
+\d pgbench_tellers
+ALTER TABLE pgbench_tellers ALTER COLUMN tbalance TYPE enc_int4  USING pg_enc_int4_encrypt(tbalance);
+select stop_extension();
+\quit
+drop extension encdb cascade;
+\quit
+\quit
+\dt
+\d pgbench_accounts
+select * from pgbench_accounts;
+\quit
+\dx
+select pg_enc_int4_encrypt(10);
+\quit
+drop extension encdb cascade;
+\quit
+\d pgbench_accounts
+\d pgbench_history 
+\quit
+\dx
+drop extension encdb;
+drop extension encdb cascade;
+create extension encdb;
+create extension encdb;
+\quit
+create extension encdb;
+\dx
+\dt
+\quit
+drop database test;
+\quit
+create database test
+\quit
+\l
+create database test;
+\l
+\quit
+select pg_enc_int4_encrypt(10);
+select stop_extension();
+\quit
+\dt
+drop database test;
+\x
+\c postgres 
+drop database test;
+create database test;
+drop\ database test;
+drop database test;
+drop database test;
+exit
+\quit
+create database test;
+\quit
+\dx
+\quit
+\dx encdb
+create extension encdb;
+\dx
+\quit
+drop extension encdb cascade;
+drop database test;
+drop database test cascade;
+drop database test forced;
+drop database test force;
+\quit
+create database test;
+drop database test;
+create database test;
+\quit
+\dx 
+\quit
+\dx
+\quit
+CREATE DATABASE TEST;
+\c test
+\c postgres 
+DROP DATABASE TEST;
+CREATE DATABASE TEST;
+\quit
+drop database if exists test;
+drop database if exists test;
+drop database if exists test;
+drop extension if exists encdb;
+\quit
+quit
+\quit
+\quit
+\quit
+\password 
+\q
+\password postgres
+\q
+\q
+CREATE EXTENSION encdb;
+.quit
+;
+quit;
+exit;
+.exit;
+.quit;
+\quit
+/quit
+\quit
+\schema
+\dt
+\dt
+select count(*) from customer;
+/quit
+\quit
+CREATE EXTENSION IF NOT EXISTS encdb;
+\?
+\dx
+quit
+/quit
+\quit
+CREATE USER test WITH PASSWORD 'password';
+CREATE DATABASE test;
+DROP USER test;
+DROP USER pgbench_accounts;
+DROP TABLE pgbench_accounts;
+DROP TABLE pgbench_tellers;
+DROP USER pgbench_accounts;
+DROP USER test;
+DROP TABLE pgbench_branches;
+DROP USER test;
+DROP DATABASE test;
+DROP USER test;
+CREATE USER test WITH PASSWORD 'password';
+CREATE DATABASE test;
+c test;
+\c test;
+CREATE EXTENSION encdb;
+\quit
+\dt
+\d customer
+\quit
+\dx
+DROP EXTENSION encdb;
+\quit
+DROP EXTENSION encdb;
+CREATE EXTENSION encdb;
+\dx
+DROP EXTENSION encdb;
+\dx
+CREATE EXTENSION encdb;
+CREATE EXTENSION encdb;
+CREATE EXTENSION encdb;
+\quit
+\ds
+\?
+\dt
+\s customer

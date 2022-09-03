@@ -1,0 +1,31 @@
+VANILLA:
+s 1
+latency average = 9.816 ms
+tps = 101.874226 (including connections establishing)
+tps = 105.207357 (excluding connections establishing)
+
+s 5
+latency average = 8.922 ms
+tps = 112.084312 (including connections establishing)
+tps = 115.727210 (excluding connections establishing)
+
+s 10
+latency average = 8.739 ms
+tps = 114.426414 (including connections establishing)
+tps = 118.435461 (excluding connections establishing)
+
+SGXMONITOR:
+s 1
+latency average = 15.777 ms
+tps = 63.382081 (including connections establishing)
+tps = 64.971104 (excluding connections establishing)
+
+s  5
+latency average = 18.588 ms
+tps = 53.797389 (including connections establishing)
+tps = 55.209541 (excluding connections establishing)
+
+s 10
+latency average = 16.775 ms
+tps = 59.614126 (including connections establishing)
+tps = 60.516022 (excluding connections establishing)

@@ -1,0 +1,14 @@
+enclave {
+    trusted {
+      public void generateSecrets([user_check] unsigned char* k,
+                                  [user_check] unsigned char* nonce);
+      public void decrypt([in, size=b_len] unsigned char *b, size_t b_len,
+                          [out, size=1] char *res);
+      public void printModel();
+    };
+
+    untrusted {
+      void ocall_print_string([in, string] const char *str);
+    };
+
+};

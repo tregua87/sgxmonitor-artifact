@@ -1,0 +1,821 @@
+diff --git a/.tags b/.tags
+new file mode 100644
+index 00000000000..9ea07fa8241
+--- /dev/null
++++ b/.tags
+@@ -0,0 +1,29 @@
++llvm	/home/flavio/llvm-project/llvm/include/llvm/Transforms/VTablePass.h	/^namespace llvm {$/;"	namespace	line:11
++VTablePass	/home/flavio/llvm-project/llvm/include/llvm/Transforms/VTablePass.h	/^class VTablePass : public ModulePass {$/;"	class	line:12	namespace:llvm
++ID	/home/flavio/llvm-project/llvm/include/llvm/Transforms/VTablePass.h	/^	static char ID;$/;"	member	line:14	class:llvm::VTablePass
++VTablePass	/home/flavio/llvm-project/llvm/include/llvm/Transforms/VTablePass.h	/^	VTablePass() : ModulePass(ID) {}$/;"	function	line:16	class:llvm::VTablePass	signature:()
++override	/home/flavio/llvm-project/llvm/include/llvm/Transforms/VTablePass.h	/^	bool doInitialization(Module &M) override;$/;"	member	line:23	class:llvm::VTablePass
++override	/home/flavio/llvm-project/llvm/include/llvm/Transforms/VTablePass.h	/^	bool runOnModule(Module &M) override;$/;"	member	line:24	class:llvm::VTablePass
++cstr	/home/flavio/llvm-project/llvm/include/llvm/Transforms/VTablePass.h	/^	std::vector<Function*> cstr;$/;"	member	line:27	class:llvm::VTablePass
++ID	/home/flavio/llvm-project/llvm/include/llvm/Transforms/VTablePass.h	/^char VTablePass::ID = 0;$/;"	member	line:39	class:llvm::VTablePass
++doInitialization	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/VTablePass.cpp	/^bool VTablePass::doInitialization(Module &M)$/;"	function	line:14	class:VTablePass	signature:(Module &M)
++runOnModule	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/VTablePass.cpp	/^bool VTablePass::runOnModule(Module &M)$/;"	function	line:73	class:VTablePass	signature:(Module &M)
++registerVTablePass	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/VTablePass.cpp	/^static void registerVTablePass(const PassManagerBuilder &,$/;"	function	line:174	file:	signature:(const PassManagerBuilder &, legacy::PassManagerBase &PM)
++llvm	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^namespace llvm {$/;"	namespace	line:11
++TracerPass	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^class TracerPass : public BasicBlockPass {$/;"	class	line:12	namespace:llvm
++ID	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	static char ID;$/;"	member	line:14	class:llvm::TracerPass
++TracerPass	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	TracerPass() : BasicBlockPass(ID) {}$/;"	function	line:16	class:llvm::TracerPass	signature:()
++override	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	bool doInitialization(Function &F) override;$/;"	member	line:23	class:llvm::TracerPass
++override	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	bool runOnBasicBlock(BasicBlock &BB) override;$/;"	member	line:24	class:llvm::TracerPass
++trace_flow_edge	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	FunctionCallee trace_flow_edge, trace_assigment, trace_frame;$/;"	member	line:29	class:llvm::TracerPass
++trace_assigment	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	FunctionCallee trace_flow_edge, trace_assigment, trace_frame;$/;"	member	line:29	class:llvm::TracerPass
++trace_frame	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	FunctionCallee trace_flow_edge, trace_assigment, trace_frame;$/;"	member	line:29	class:llvm::TracerPass
++intrinsic_retaddr	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	Function *intrinsic_retaddr, *intrinsic_frmaddr;$/;"	member	line:30	class:llvm::TracerPass
++intrinsic_frmaddr	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	Function *intrinsic_retaddr, *intrinsic_frmaddr;$/;"	member	line:30	class:llvm::TracerPass
++toInstrument	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	bool toInstrument = false;$/;"	member	line:37	class:llvm::TracerPass
++toTrace	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^	StringRef toTrace = "toTrace";$/;"	member	line:39	class:llvm::TracerPass
++ID	/home/flavio/llvm-project/llvm/include/llvm/Transforms/TracerPass.h	/^char TracerPass::ID = 0;$/;"	member	line:43	class:llvm::TracerPass
++doInitialization	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/TracerPass.cpp	/^bool TracerPass::doInitialization(Function &F)$/;"	function	line:14	class:TracerPass	signature:(Function &F)
++runOnBasicBlock	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/TracerPass.cpp	/^bool TracerPass::runOnBasicBlock(BasicBlock &BB)$/;"	function	line:60	class:TracerPass	signature:(BasicBlock &BB)
++isAnnotated	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/TracerPass.cpp	/^bool TracerPass::isAnnotated(StringRef fun, Module *m)$/;"	function	line:162	class:TracerPass	signature:(StringRef fun, Module *m)
++registerTracerPass	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/TracerPass.cpp	/^static void registerTracerPass(const PassManagerBuilder &,$/;"	function	line:198	file:	signature:(const PassManagerBuilder &, legacy::PassManagerBase &PM)
+diff --git a/.tags1 b/.tags1
+new file mode 100644
+index 00000000000..d6a8309712d
+--- /dev/null
++++ b/.tags1
+@@ -0,0 +1,10 @@
++!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
++!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
++!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
++!_TAG_PROGRAM_NAME	Exuberant Ctags	//
++!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
++!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
++doInitialization	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/TracerPass.cpp	/^bool TracerPass::doInitialization(Function &F)$/;"	function	line:14	class:TracerPass	signature:(Function &F)
++runOnBasicBlock	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/TracerPass.cpp	/^bool TracerPass::runOnBasicBlock(BasicBlock &BB)$/;"	function	line:60	class:TracerPass	signature:(BasicBlock &BB)
++isAnnotated	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/TracerPass.cpp	/^bool TracerPass::isAnnotated(StringRef fun, Module *m)$/;"	function	line:162	class:TracerPass	signature:(StringRef fun, Module *m)
++registerTracerPass	/home/flavio/llvm-project/llvm/lib/Transforms/InstPass/TracerPass.cpp	/^static void registerTracerPass(const PassManagerBuilder &,$/;"	function	line:198	file:	signature:(const PassManagerBuilder &, legacy::PassManagerBase &PM)
+diff --git a/clang/include/clang/Basic/CodeGenOptions.h b/clang/include/clang/Basic/CodeGenOptions.h
+index 8881a316d1f..c061c77c593 100644
+--- a/clang/include/clang/Basic/CodeGenOptions.h
++++ b/clang/include/clang/Basic/CodeGenOptions.h
+@@ -44,6 +44,17 @@ protected:
+ /// is optimized and passed to the backend.
+ class CodeGenOptions : public CodeGenOptionsBase {
+ public:
++  // // FLVIO: to handle SGX instrumentation
++  // struct DoInstrument {
++  //   bool DoOrNot;
++  //   DoInstrument(): DoOrNot(false) {}
++  //   inline bool empty() const {
++  //     return DoOrNot;
++  //   }
++  // };
++  // DoInstrument doInstrument;
++  //
++
+   enum InliningMethod {
+     NormalInlining,     // Use the standard function inlining pass.
+     OnlyHintInlining,   // Inline only (implicitly) hinted functions.
+diff --git a/clang/include/clang/Driver/CC1Options.td b/clang/include/clang/Driver/CC1Options.td
+index 6a32754926e..363f3bb7518 100644
+--- a/clang/include/clang/Driver/CC1Options.td
++++ b/clang/include/clang/Driver/CC1Options.td
+@@ -10,6 +10,11 @@
+ //
+ //===----------------------------------------------------------------------===//
+ 
++// FLAVIO: for SGX instrumentation
++// def do_instrument2 : Flag<["-"], "do-instrument2">,
++//  HelpText<"Add instrumentation for SGX Enclaves (2)">;
++
++
+ let Flags = [CC1Option, NoDriverOption] in {
+ 
+ //===----------------------------------------------------------------------===//
+diff --git a/clang/include/clang/Driver/Options.td b/clang/include/clang/Driver/Options.td
+index 0f2c314a337..29188c87fb8 100644
+--- a/clang/include/clang/Driver/Options.td
++++ b/clang/include/clang/Driver/Options.td
+@@ -3244,6 +3244,9 @@ defm stack_arrays : BooleanFFlag<"stack-arrays">, Group<gfortran_Group>;
+ defm underscoring : BooleanFFlag<"underscoring">, Group<gfortran_Group>;
+ defm whole_file : BooleanFFlag<"whole-file">, Group<gfortran_Group>;
+ 
++// FLAVIO TEST FOR INSTRUMENTATION WITH CLANG
++// def do_instrument : Flag<["-","--"], "do-instrument">, Flags<[DriverOption]>,
++//    HelpText<"Instrumentation for SGX Enclaves">;
+ 
+ include "CC1Options.td"
+ 
+diff --git a/clang/lib/CodeGen/BackendUtil.cpp b/clang/lib/CodeGen/BackendUtil.cpp
+index 2023ced655c..a7d7b8c7dc1 100644
+--- a/clang/lib/CodeGen/BackendUtil.cpp
++++ b/clang/lib/CodeGen/BackendUtil.cpp
+@@ -71,6 +71,10 @@
+ #include "llvm/Transforms/Utils/EntryExitInstrumenter.h"
+ #include "llvm/Transforms/Utils/NameAnonGlobals.h"
+ #include "llvm/Transforms/Utils/SymbolRewriter.h"
++
++// FLAVIO for sgx instrumentation
++// #include "llvm/Transforms/TracerPass.h"
++
+ #include <memory>
+ using namespace clang;
+ using namespace llvm;
+@@ -356,7 +360,7 @@ static TargetLibraryInfoImpl *createTLII(llvm::Triple &TargetTriple,
+     break;
+   case CodeGenOptions::MASSV:
+     TLII->addVectorizableFunctionsFromVecLib(TargetLibraryInfoImpl::MASSV);
+-    break;    
++    break;
+   case CodeGenOptions::SVML:
+     TLII->addVectorizableFunctionsFromVecLib(TargetLibraryInfoImpl::SVML);
+     break;
+@@ -731,6 +735,13 @@ void EmitAssemblyHelper::CreatePasses(legacy::PassManager &MPM,
+   if (!CodeGenOpts.SampleProfileFile.empty())
+     PMBuilder.PGOSampleUse = CodeGenOpts.SampleProfileFile;
+ 
++  // FLAVIO sgx instrumentation
++  // if(!CodeGenOpts.doInstrument.empty()) {
++  //   MPM.add(new TracerPass());
++  //   // MPM.add(createExtraProteinLegacyPass(CodeGenOpts.ExtraProteinAmount.Duplicate,
++  //   //                                      CodeGenOpts.ExtraProteinAmount.Amend));
++  // }
++
+   PMBuilder.populateFunctionPassManager(FPM);
+   PMBuilder.populateModulePassManager(MPM);
+ }
+diff --git a/clang/lib/CodeGen/CGClass.cpp b/clang/lib/CodeGen/CGClass.cpp
+index c8bb63c5c4b..6a61d69abb1 100644
+--- a/clang/lib/CodeGen/CGClass.cpp
++++ b/clang/lib/CodeGen/CGClass.cpp
+@@ -28,6 +28,8 @@
+ #include "llvm/IR/Metadata.h"
+ #include "llvm/Transforms/Utils/SanitizerStats.h"
+ 
++#include <stdio.h>
++
+ using namespace clang;
+ using namespace CodeGen;
+ 
+@@ -2491,12 +2493,37 @@ void CodeGenFunction::InitializeVTablePointer(const VPtr &Vptr) {
+   VTableField = Builder.CreateBitCast(VTableField, VTablePtrTy->getPointerTo());
+   VTableAddressPoint = Builder.CreateBitCast(VTableAddressPoint, VTablePtrTy);
+ 
++  // XXX: vptr assignment
+   llvm::StoreInst *Store = Builder.CreateStore(VTableAddressPoint, VTableField);
+   TBAAAccessInfo TBAAInfo = CGM.getTBAAVTablePtrAccessInfo(VTablePtrTy);
+   CGM.DecorateInstructionWithTBAA(Store, TBAAInfo);
+   if (CGM.getCodeGenOpts().OptimizationLevel > 0 &&
+       CGM.getCodeGenOpts().StrictVTablePointers)
+     CGM.DecorateInstructionWithInvariantGroup(Store, Vptr.VTableClass);
++
++  // CGCXXABI & 	getCXXABI () const
++
++  llvm::LLVMContext &ctx = CGM.getLLVMContext();
++  llvm::Module &m = CGM.getModule();
++
++  Address This = LoadCXXThisAddress();
++
++  llvm::FunctionCallee trace_vptr = m.getOrInsertFunction("traceptr",
++		/* return type */
++		llvm::Type::getVoidTy(ctx),
++		/* argument types */
++		llvm::Type::getInt8PtrTy(ctx),
++		llvm::Type::getInt8PtrTy(ctx));
++  llvm::Value *objCast =
++    Builder.CreateBitCast(This.getPointer(), llvm::Type::getInt8PtrTy(ctx));
++  llvm::Value *ptrCast =
++    Builder.CreateBitCast(VTableAddressPoint, llvm::Type::getInt8PtrTy(ctx));
++
++  std::vector<llvm::Value*> args;
++  args.push_back(objCast);
++  args.push_back(ptrCast);
++
++  Builder.CreateCall(trace_vptr, args);
+ }
+ 
+ CodeGenFunction::VPtrsVector
+diff --git a/clang/lib/CodeGen/CMakeLists.txt b/clang/lib/CodeGen/CMakeLists.txt
+index 6d1f33b8924..ebc3d96babf 100644
+--- a/clang/lib/CodeGen/CMakeLists.txt
++++ b/clang/lib/CodeGen/CMakeLists.txt
+@@ -22,6 +22,7 @@ set(LLVM_LINK_COMPONENTS
+   Support
+   Target
+   TransformUtils
++  #TracePass
+   )
+ 
+ # In a standard Clang+LLVM build, we need to generate intrinsics before
+diff --git a/clang/lib/CodeGen/CodeGenModule.cpp b/clang/lib/CodeGen/CodeGenModule.cpp
+index 8943b407bdc..0acd9dcb9c7 100644
+--- a/clang/lib/CodeGen/CodeGenModule.cpp
++++ b/clang/lib/CodeGen/CodeGenModule.cpp
+@@ -1518,6 +1518,8 @@ void CodeGenModule::SetLLVMFunctionAttributesForDefinition(const Decl *D,
+   ShouldAddOptNone &= !D->hasAttr<MinSizeAttr>();
+   ShouldAddOptNone &= !F->hasFnAttribute(llvm::Attribute::AlwaysInline);
+   ShouldAddOptNone &= !D->hasAttr<AlwaysInlineAttr>();
++  // FLAVIO for SGX insturmentation
++  // ShouldAddOptNone &= CodeGenOpts.doInstrument.empty();
+ 
+   if (ShouldAddOptNone || D->hasAttr<OptimizeNoneAttr>()) {
+     B.addAttribute(llvm::Attribute::OptimizeNone);
+diff --git a/clang/lib/Driver/ToolChains/Clang.cpp b/clang/lib/Driver/ToolChains/Clang.cpp
+index eba6128070c..0b19dd07b25 100644
+--- a/clang/lib/Driver/ToolChains/Clang.cpp
++++ b/clang/lib/Driver/ToolChains/Clang.cpp
+@@ -5561,6 +5561,27 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
+ 
+   // Disable warnings for clang -E -emit-llvm foo.c
+   Args.ClaimAllArgs(options::OPT_emit_llvm);
++
++  // FLAVIO: to handle instruentation pass
++  // if(const Arg *A = Args.getLastArg(options::OPT_do_instrument)) {
++  //   // StringRef Val = A->getValue();
++  //   // uint32_t NumAmount = 0;
++  //   // Val.consumeInteger(10, NumAmount);
++  //   // if(Val == "lb") {
++  //   //   // Turn 'pound' to 'gram'
++  //   //   NumAmount *= 454; // 1 pound == 453.59 gram
++  //   //   Val = "g";
++  //   // }
++  //
++  //   // Create command line options for frontend
++  //   // SmallString<8> ProteinAmount;
++  //   // ProteinAmount.assign(std::to_string(NumAmount));
++  //   // ProteinAmount.append(Val);
++  //   CmdArgs.push_back(
++  //     // Args.MakeArgString(Twine("-extra-protein-amount=") + ProteinAmount)
++  //     Args.MakeArgString(Twine("-do-instrument2"))
++  //   );
++  // }
+ }
+ 
+ Clang::Clang(const ToolChain &TC)
+diff --git a/clang/lib/Frontend/CompilerInvocation.cpp b/clang/lib/Frontend/CompilerInvocation.cpp
+index fb5f1cc5ac7..deca7582eae 100644
+--- a/clang/lib/Frontend/CompilerInvocation.cpp
++++ b/clang/lib/Frontend/CompilerInvocation.cpp
+@@ -1374,6 +1374,23 @@ static bool ParseCodeGenArgs(CodeGenOptions &Opts, ArgList &Args, InputKind IK,
+ 
+   Opts.SymbolPartition = Args.getLastArgValue(OPT_fsymbol_partition_EQ);
+ 
++  // //FLAVIO: for SGX instrumentation
++  // for(const auto& Arg : Args.getAllArgValues(OPT_do_instrument2)) {
++  //   // StringRef Val(Arg);
++  //   // if(Val.endswith("x")) {
++  //   //   // Duplicate
++  //   //   uint32_t Num = 0;
++  //   //   Val.consumeInteger(10, Num);
++  //   //   Opts.ExtraProteinAmount.Duplicate += Num;
++  //   // } else {
++  //   //   // Amend
++  //   //   uint32_t Num = 0;
++  //   //   Val.consumeInteger(10, Num);
++  //   //   Opts.ExtraProteinAmount.Amend += Num;
++  //   // }
++  //   Opts.doInstrument.DoOrNot = 1;
++  // }
++
+   return Success;
+ }
+ 
+diff --git a/llvm/include/llvm/Transforms/TracerPass.h b/llvm/include/llvm/Transforms/TracerPass.h
+new file mode 100644
+index 00000000000..4255735e4bd
+--- /dev/null
++++ b/llvm/include/llvm/Transforms/TracerPass.h
+@@ -0,0 +1,55 @@
++#include <set>
++#include <string>
++#include <vector>
++
++#include "llvm/Pass.h"
++#include "llvm/Transforms/IPO/PassManagerBuilder.h"
++#include "llvm/IR/LegacyPassManager.h"
++#include "llvm/IR/IRBuilder.h"
++#include "llvm/Support/raw_ostream.h"
++
++using namespace std;
++
++namespace llvm {
++class TracerPass : public BasicBlockPass {
++public:
++	static char ID;
++
++	TracerPass() : BasicBlockPass(ID) {}
++
++	StringRef getPassName() const override
++	{
++		return "Tracer Instrumentation";
++	}
++
++	// list of inline functions to avoid
++	// llvm::SmallVector<llvm::StringRef, 200> inline_functions;
++	std::vector<std::string> inline_functions;
++
++	bool doInitialization(Function &F) override;
++	bool runOnBasicBlock(BasicBlock &BB) override;
++
++	bool isAnnotated(StringRef fun, Module *m);
++
++private:
++	FunctionCallee trace_flow_edge, trace_assigment, trace_frame,
++		trace_flow_branch, trace_flow_branch_direct;
++	Function *intrinsic_retaddr, *intrinsic_frmaddr;
++	// set<string> blackList {"setBA", "_Z9nextNoncev", "bootSecureCommunication",
++	// 												"sgx_bootSecureCommunication", "sgx_makeEndMsg",
++	// 												"sgx_setBA", "makeEndMsg", "_Z10traceedgecPv",
++	// 												"ocall_print_string", "printf"};
++	// LET'S find a good list
++	// set<string> whiteList {"main", "hello1", "a", "b"};
++	bool toInstrument = false;
++
++	StringRef yep = "yep";
++	StringRef instTag = "isInstrumented";
++	StringRef toTrace = "toTrace";
++
++};
++
++char TracerPass::ID = 0;
++
++// BasicBlockPass *createTracerPass();
++}
+diff --git a/llvm/lib/Transforms/CMakeLists.txt b/llvm/lib/Transforms/CMakeLists.txt
+index 74db9e53304..01882d268a7 100644
+--- a/llvm/lib/Transforms/CMakeLists.txt
++++ b/llvm/lib/Transforms/CMakeLists.txt
+@@ -8,3 +8,4 @@ add_subdirectory(Vectorize)
+ add_subdirectory(Hello)
+ add_subdirectory(ObjCARC)
+ add_subdirectory(Coroutines)
++add_subdirectory(InstPass)
+diff --git a/llvm/lib/Transforms/InstPass/CMakeLists.txt b/llvm/lib/Transforms/InstPass/CMakeLists.txt
+new file mode 100755
+index 00000000000..dc535144dea
+--- /dev/null
++++ b/llvm/lib/Transforms/InstPass/CMakeLists.txt
+@@ -0,0 +1,20 @@
++# If we don't need RTTI or EH, there's no reason to export anything
++# from the hello plugin.
++if( NOT LLVM_REQUIRES_RTTI )
++  if( NOT LLVM_REQUIRES_EH )
++    set(LLVM_EXPORTED_SYMBOL_FILE ${CMAKE_CURRENT_SOURCE_DIR}/TracerPass.exports)
++  endif()
++endif()
++
++if(WIN32 OR CYGWIN)
++  set(LLVM_LINK_COMPONENTS Core Support)
++endif()
++
++add_llvm_library( LLVMTracerPass MODULE BUILDTREE_ONLY
++  TracerPass.cpp
++
++  DEPENDS
++  intrinsics_gen
++  PLUGIN_TOOL
++  opt
++  )
+diff --git a/llvm/lib/Transforms/InstPass/LLVMBuild.txt b/llvm/lib/Transforms/InstPass/LLVMBuild.txt
+new file mode 100644
+index 00000000000..5bf671e4754
+--- /dev/null
++++ b/llvm/lib/Transforms/InstPass/LLVMBuild.txt
+@@ -0,0 +1,21 @@
++;===- ./lib/Transforms/Instrumentation/LLVMBuild.txt -----------*- Conf -*--===;
++;
++; Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
++; See https://llvm.org/LICENSE.txt for license information.
++; SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
++;
++;===------------------------------------------------------------------------===;
++;
++; This is an LLVMBuild description file for the components in this subdirectory.
++;
++; For more information on the LLVMBuild system, please see:
++;
++;   http://llvm.org/docs/LLVMBuild.html
++;
++;===------------------------------------------------------------------------===;
++
++[component_0]
++type = Library
++name = InstPass
++parent = Transforms
++required_libraries = Analysis Core MC Support TransformUtils ProfileData
+diff --git a/llvm/lib/Transforms/InstPass/TracerPass.cpp b/llvm/lib/Transforms/InstPass/TracerPass.cpp
+new file mode 100755
+index 00000000000..e64eb7d9cfa
+--- /dev/null
++++ b/llvm/lib/Transforms/InstPass/TracerPass.cpp
+@@ -0,0 +1,399 @@
++#include <vector>
++#include <sstream>
++#include <string>
++#include <fstream>
++#include <iostream>
++
++#include "llvm/Pass.h"
++#include "llvm/Transforms/IPO/PassManagerBuilder.h"
++#include "llvm/IR/LegacyPassManager.h"
++#include "llvm/IR/IRBuilder.h"
++#include "llvm/Support/raw_ostream.h"
++#include "llvm/IR/InstrTypes.h"
++#include "llvm/IR/Type.h"
++
++#include "llvm/IR/InlineAsm.h"
++
++#include "llvm/Transforms/TracerPass.h"
++
++using namespace llvm;
++
++bool TracerPass::doInitialization(Function &F)
++{
++	Module *m = F.getParent();
++
++	StringRef currentFun = F.getName();
++	toInstrument = isAnnotated(currentFun, m);
++	if (toInstrument) {
++		llvm::outs() << currentFun << " is instrumented\n";
++	}
++
++	trace_flow_edge = m->getOrInsertFunction("_Z10traceedgecPv",
++		/* return type */
++		Type::getVoidTy(m->getContext()),
++		/* argument types */
++		Type::getInt8PtrTy(m->getContext()));
++	assert(trace_flow_edge);
++
++	trace_flow_branch = m->getOrInsertFunction("_Z7tracebrPv",
++		Type::getVoidTy(m->getContext()),
++		/* argument types */
++		Type::getInt1Ty(m->getContext()));
++	assert(trace_flow_branch);
++
++	trace_flow_branch_direct = m->getOrInsertFunction("_Z13tracebrdirectPv",
++		Type::getVoidTy(m->getContext()),
++		/* argument types */
++		Type::getInt8PtrTy(m->getContext()));
++	assert(trace_flow_branch_direct);
++
++	trace_assigment = m->getOrInsertFunction("_Z15traceassigmentfPv",
++		/* return type */
++		Type::getVoidTy(m->getContext()),
++		/* argument types */
++		Type::getInt8PtrTy(m->getContext()));
++	assert(trace_assigment);
++
++	// trace_frame = m->getOrInsertFunction("traceframe",
++	// trace_frame = m->getOrInsertFunction("_Z10traceframePv",
++	// 	/* return type */
++	// 	Type::getVoidTy(m->getContext()),
++	// 	/* argument types */
++	// 	Type::getInt8PtrTy(m->getContext()));
++	// assert(trace_frame);
++
++	intrinsic_retaddr = Intrinsic::getDeclaration(m, Intrinsic::ID::returnaddress, {});
++	intrinsic_frmaddr = Intrinsic::getDeclaration(m, Intrinsic::ID::frameaddress, 
++		{ Type::getInt8PtrTy(m->getContext()) });
++
++	assert(intrinsic_retaddr);
++	assert(intrinsic_frmaddr);
++
++	// inline functions initializations
++	if (this->inline_functions.size() == 0) { 
++
++		std::string delimiter = ",";
++
++		size_t pos = 0;
++		std::string token;
++
++     std::string sgxmonitor_src(std::getenv("SGXMONITOR_PATH"));
++     std::string full_path = sgxmonitor_src + "/analyzer/real_inline.txt";
++     
++		std::ifstream infile(full_path.c_str());
++		std::string line;
++		while (std::getline(infile, line))
++		{
++			line.erase(line.size() - 1);
++
++			pos = line.find(delimiter);
++			line.erase(0, pos + delimiter.size());
++			pos = line.find(delimiter);
++			line.erase(0, pos + delimiter.size() + 1);
++
++    		// std::cout << line << std::endl;
++			this->inline_functions.push_back(line);
++		}
++
++		// llvm::outs() << "\nSTART\n";
++		// for (auto e: this->inline_functions) {
++		// 	llvm:outs() << e << "\n";
++		// }
++		// llvm::outs() << "\nEND\n";
++
++		// exit(0);
++	}
++
++}
++
++bool TracerPass::runOnBasicBlock(BasicBlock &BB)
++{
++	// llvm::outs() << "\t> start runOnBasicBlock\n";
++
++	Function *F = BB.getParent();
++
++	// StringRef currentFun = F->getName();
++	// if (currentFun == "enclaveProcess") {
++	// 	llvm::outs() << currentFun << ":\n";
++	// 	llvm::outs() << BB << "\n";
++	// }
++
++	if (F->isIntrinsic()) {
++		// llvm::outs() << "Skip this intrinsic: " << F->getName() << "\n";
++		return false;
++	}
++
++	// llvm::outs() << "A fun: " << F->getName();
++	// if (blackList.find(F->getName()) != blackList.end()) {
++	// if (whiteList.find(F->getName()) == whiteList.end()) {
++	// 	// llvm::outs() << " skipped\n";
++	// 	return false;
++	// }
++	if (!toInstrument)
++		return false;
++
++	// llvm::outs() << "\n";
++
++	for (auto &I : BB) {
++
++		// if (isa<InlineAsm>(&I)) {
++		// 	llvm::outs() << "\t> [1] This is an inline asm\n";
++		// 	llvm::outs() << I << "\n";
++		// 	exit(0);
++		// }
++
++		IRBuilder<> builder(&I);
++		Value *target = NULL;
++		Value *targetB = NULL;
++		Value *pnt = NULL;
++
++		// if (isa<InlineAsm>(&I)) {
++		// 	llvm::outs() << "\t> [2] This is an inline asm\n";
++		// 	llvm::outs() << I << "\n";
++		// 	exit(0);
++		// }
++
++		// FOR TRACING FUNCTION POINTER ASSIGMENTS
++		if (auto *SI = dyn_cast<StoreInst>(&I)) {
++
++			auto *vo = SI->getValueOperand();
++			auto *po = SI->getPointerOperand();
++
++			if (vo && vo->getType()->isPointerTy() &&
++					po && po->getType()->isPointerTy() &&
++					// the pointer points to a function
++					isa<Function>(*vo->stripPointerCasts())) {
++
++					// Value *addrCast =
++					// 	builder.CreateBitCast(po->stripPointerCasts(), Type::getInt8PtrTy(BB.getContext()));
++					Value *funcCast =
++							builder.CreateBitCast(vo->stripPointerCasts(), Type::getInt8PtrTy(BB.getContext()));
++
++					std::vector<Value *> args;
++					// args.push_back(addrCast);
++					args.push_back(funcCast);
++
++					builder.CreateCall(trace_assigment, args);
++			}
++		}
++
++		// llvm::outs() << I << "\n";
++
++		// FOR TRACING EDGES (backward and forward)
++		auto *CI = dyn_cast<CallInst>(&I);
++		// XXX I have no idea whether hasName is a good way to check
++		// Seems like the pass is running too early, so getCalledFunction()
++		// is NULL for direct calls to other CUs
++		if (CI) {
++			// if (target->hasName()) continue;
++			// if (isa<UndefValue>(target)) continue;
++			// if (isa<InlineAsm>(target)) continue;
++			// if (isa<ConstantPointerNull>(target)) continue;
++			if (CI->getCalledFunction() && !CI->getCalledFunction()->isIntrinsic()) {
++					target = CI->getCalledValue()->stripPointerCasts();
++			}
++			else if (!CI->getCalledFunction() && CI->getCalledValue()) {
++					target = CI->getCalledValue()->stripPointerCasts();
++			}
++			
++			// if target is an inline funciton, I just skip it
++			if (target && target->hasName() && 
++				std::find(this->inline_functions.begin(), this->inline_functions.end(), target->getName().str()) != this->inline_functions.end()) {
++				continue;
++			}
++
++			if (target && isa<InlineAsm>(target))
++				continue;
++
++			// TRICK, we don't want to trace the same function
++			if (target && target->hasName() && target->getName() == "_Z7tracebrPv")
++				continue;
++		} else if (auto *IBI = dyn_cast<IndirectBrInst>(&I)) {
++			target = IBI->getAddress();
++		} else if (auto *BI = dyn_cast<BranchInst>(&I)) {
++			if (BI->isConditional()) {
++				auto bbT = BI->getSuccessor(0);
++				auto bbF = BI->getSuccessor(1);
++				// llvm::outs() << " -> bbF: " << *bbF << "\n";
++
++				if (bbT) {
++					// llvm::outs() << " -> bbT: " << *bbT << "\n";
++					auto &bI = bbT->front();
++
++					if (!isa<PHINode>(bI) && bI.getMetadata(this->instTag) == NULL) {
++						IRBuilder<> builderT(&bI);
++						std::vector<Value *> args;
++						args.push_back(ConstantInt::get(Type::getInt1Ty(BB.getContext()), 1));
++						auto tc = builderT.CreateCall(trace_flow_branch, args);
++
++						LLVMContext& C = BB.getContext();
++						MDNode* N = MDNode::get(C, MDString::get(C, this->yep));
++						tc->setMetadata(this->instTag, N);
++					}
++				}
++
++				if (bbF) {
++					// llvm::outs() << " -> bbF: " << *bbF << "\n";
++					auto &bI = bbF->front();
++
++					if (!isa<PHINode>(bI) && bI.getMetadata(this->instTag) == NULL) {
++						IRBuilder<> builderT(&bI);
++						std::vector<Value *> args;
++						args.push_back(ConstantInt::get(Type::getInt1Ty(BB.getContext()), 0));
++						auto tc = builderT.CreateCall(trace_flow_branch, args);
++
++						LLVMContext& C = BB.getContext();
++						MDNode* N = MDNode::get(C, MDString::get(C, this->yep));
++						tc->setMetadata(this->instTag, N);
++					}
++				}
++
++				// std::vector<Value *> args;
++				// args.push_back(BI->getCondition());
++				// builder.CreateCall(trace_flow_branch, args);
++			}
++		} else if (auto *RI = dyn_cast<ReturnInst>(&I)) {
++			std::vector<Value *> args;
++			args.push_back(ConstantInt::get(Type::getInt32Ty(BB.getContext()), 0));
++			target = builder.CreateCall(intrinsic_retaddr, args);
++
++			// if target is an inline funciton, I just skip it
++			if (F->hasName() &&
++				std::find(this->inline_functions.begin(), this->inline_functions.end(), F->getName()) != this->inline_functions.end()) {
++				continue;
++			}
++		}
++
++		if (target) {
++			Value *targetCast =
++				builder.CreateBitCast(target, Type::getInt8PtrTy(BB.getContext()));
++			std::vector<Value *> args;
++			args.push_back(targetCast);
++			auto tc = builder.CreateCall(trace_flow_edge, args);
++
++			LLVMContext& C = BB.getContext();
++			MDNode* N = MDNode::get(C, MDString::get(C, this->yep));
++			tc->setMetadata(this->instTag, N);
++		}
++	}
++
++	// if (getInstrumented) {
++	// 	auto &IF = BB.front();
++	// 	LLVMContext& C = BB.getContext();
++	// 	MDNode* N = MDNode::get(C, MDString::get(C, this->yep));
++	// 	IF.setMetadata(this->instTag, N);
++	// }
++
++	// // FOR TRACING NEW FRAME
++	// if (&F->getEntryBlock() == &BB) {
++	// 	auto &I = BB.front();
++	// 	IRBuilder<> builder(&I);
++	//
++	// 	std::vector<Value *> argsF;
++	// 	argsF.push_back(ConstantInt::get(Type::getInt32Ty(BB.getContext()), 0));
++	// 	Value *frame = builder.CreateCall(intrinsic_frmaddr, argsF);
++	//
++	// 	Value *frameCast =
++	// 		builder.CreateBitCast(frame, Type::getInt8PtrTy(BB.getContext()));
++	//
++	// 	std::vector<Value *> args;
++	// 	args.push_back(frameCast);
++	// 	builder.CreateCall(trace_frame, args);
++	// }
++
++	// llvm::outs() << "\t> Instrumentation done\n";
++
++	return true;
++}
++
++bool TracerPass::isAnnotated(StringRef fun, Module *m)
++{
++	// TODO: BIG PADULO!!! invert this logic, if a module is annotated -> it is not traced.
++	if(GlobalVariable* GA = m->getGlobalVariable("__NOT_INSTRUMENT_THIS__")) {
++		// llvm::outs() << "It is annotated!\n";
++		return false;
++	}
++
++	// XXX: this sucks
++	if (fun == "sgx_setBucket") {
++		return false;
++	}
++	if (fun == "sgx_bootSecureCommunication") {
++		return false;
++	}
++	if (fun == "sgx_makeEndMsg") {
++		return false;
++	}
++	if (fun == "ocall_monitorgatewayu") {
++		return false;
++	}
++
++	// llvm::outs() << "It is NOT annotated!\n";
++	return true;
++
++
++	// if (m->getSourceFileName() == "Tracer/T-Tracer.cpp")
++	// 	return false;
++	//
++	//
++	// llvm::outs() << "XXXX: " << fun << "\n";
++	// if (fun == "_Z9nextNoncev") {
++	// 	llvm::outs() << "YYYY: RETURN FALSE\n";
++	// 	return false;
++	// }
++
++	// if (fun == "_Z10traceedgecPv")
++	// 	return false;
++	//
++	// if (fun == "_Z15traceassigmentfPvS_")
++	// 	return false;
++	//
++	// if (fun == "_Z10traceframePv")
++	// 	return false;
++	//
++	// return true;
++	// // XXX I am sure we can do MUCH MUCH better than this! btw, so far so good
++	// if(GlobalVariable* GA = m->getGlobalVariable("llvm.global.annotations")) {
++	// 	// the first operand holds the metadata
++	// 	for (Value *AOp : GA->operands()) {
++	// 		// all metadata are stored in an array of struct of metadata
++	// 		if (ConstantArray *CA = dyn_cast<ConstantArray>(AOp)) {
++	// 			// so iterate over the operands
++	// 			for (Value *CAOp : CA->operands()) {
++	// 				// get the struct, which holds a pointer to the annotated function
++	// 				// as first field, and the annotation as second field
++	// 				if (ConstantStruct *CS = dyn_cast<ConstantStruct>(CAOp)) {
++	// 					if (CS->getNumOperands() >= 2) {
++	// 						Function* AnnotatedFunction = cast<Function>(CS->getOperand(0)->getOperand(0));
++	// 						StringRef aFun = AnnotatedFunction->getName();
++	// 						// the second field is a pointer to a global constant Array that holds the string
++	// 						if (GlobalVariable *GAnn =
++	// 								dyn_cast<GlobalVariable>(CS->getOperand(1)->getOperand(0))) {
++	// 							if (ConstantDataArray *A =
++	// 									dyn_cast<ConstantDataArray>(GAnn->getOperand(0))) {
++	// 								// we have the annotation! Check it's an epona annotation and process
++	// 								StringRef AS = A->getAsString();
++	// 								if (AS.startswith(toTrace) && aFun == fun)
++	// 									return true;
++	// 							}
++	// 						}
++	// 					}
++	// 				}
++	// 			}
++	// 		}
++	// 	}
++	// }
++	// return false;
++}
++
++static void registerTracerPass(const PassManagerBuilder &,
++	legacy::PassManagerBase &PM)
++{
++	PM.add(new TracerPass());
++}
++
++static RegisterPass<TracerPass>
++X("TracerPass", "Tracer Instrumentation", true, false);
++
++static RegisterStandardPasses
++Y(PassManagerBuilder::EP_EarlyAsPossible, registerTracerPass);
+diff --git a/llvm/lib/Transforms/InstPass/TracerPass.exports b/llvm/lib/Transforms/InstPass/TracerPass.exports
+new file mode 100644
+index 00000000000..e69de29bb2d
+diff --git a/llvm/lib/Transforms/LLVMBuild.txt b/llvm/lib/Transforms/LLVMBuild.txt
+index 75c614fd2c4..e5161a963ba 100644
+--- a/llvm/lib/Transforms/LLVMBuild.txt
++++ b/llvm/lib/Transforms/LLVMBuild.txt
+@@ -15,7 +15,7 @@
+ ;===------------------------------------------------------------------------===;
+ 
+ [common]
+-subdirectories = AggressiveInstCombine Coroutines IPO InstCombine Instrumentation Scalar Utils Vectorize ObjCARC
++subdirectories = AggressiveInstCombine Coroutines IPO InstCombine  Scalar Utils Vectorize ObjCARC Instrumentation
+ 
+ [component_0]
+ type = Group

@@ -1,0 +1,23 @@
+enclave {
+    include "async_bucket.h"
+
+    from "sgx_tstdc.edl" import sgx_thread_wait_untrusted_event_ocall, sgx_thread_set_untrusted_event_ocall, sgx_thread_setwait_untrusted_events_ocall, sgx_thread_set_multiple_untrusted_events_ocall;
+
+    trusted {
+         public void hello1(void);
+         public void setBA(unsigned long basic_address);
+         public void setBucket([user_check] bucket *b);
+
+         // this secure function is used to boot a secure communication
+         // between the target and the remote enclave.
+         public void bootSecureCommunication(void);
+         // public void makeEndMsg([out, count=lenO] unsigned char *strO, size_t lenO);
+         public void makeEndMsg();
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char *str);
+        void ocall_monitorgatewayu([in, count=lenI] const char *strI, size_t lenI, [out, count=lenO] char *strO, size_t lenO);
+    };
+
+};

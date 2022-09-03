@@ -1,0 +1,74 @@
+
+secure function 0
+
+real	34m51.446s
+user	34m39.773s
+sys	0m13.849s
+-----
+secure function 1
+
+real	5m39.990s
+user	5m43.536s
+sys	0m11.718s
+-----
+secure function 2
+
+real	1m14.384s
+user	1m13.811s
+sys	0m1.628s
+-----
+secure function 3
+
+real	186m8.204s
+user	185m42.331s
+sys	0m30.356s
+-----
+secure function 4
+
+real	1m29.192s
+user	1m28.381s
+sys	0m2.371s
+-----
+secure function 5
+./run_contact.sh: line 9: 29527 Killed                  ./explore_traced_enclave.py -e $ENCLAVE -s $I -d model-$I.txt -l $LOOPFILE -r error-$I.txt -c Contact 2> /dev/null
+
+real	93m39.960s
+user	91m16.403s
+sys	2m6.689s
+-----
+secure function 6
+
+real	3m46.818s
+user	3m41.004s
+sys	0m6.540s
+-----
+secure function 7
+
+real	0m53.762s
+user	0m53.474s
+sys	0m1.374s
+-----
+secure function 8
+
+real	1m1.180s
+user	1m0.752s
+sys	0m1.520s
+-----
+secure function 9
+
+real	2m54.165s
+user	2m55.368s
+sys	0m6.951s
+-----
+secure function 10
+
+real	0m52.090s
+user	0m51.853s
+sys	0m1.177s
+-----
+exception
+
+real	0m2.065s
+user	0m1.937s
+sys	0m0.115s
+-----

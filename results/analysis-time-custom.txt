@@ -1,0 +1,49 @@
+
+secure function 0
+
+real	2m14.853s
+user	2m14.923s
+sys	0m6.566s
+-----
+secure function 1
+
+real	2m57.513s
+user	2m57.467s
+sys	0m4.808s
+-----
+secure function 2
+
+real	0m59.792s
+user	0m59.521s
+sys	0m1.409s
+-----
+secure function 3
+
+real	0m53.912s
+user	0m53.611s
+sys	0m1.382s
+-----
+secure function 4
+
+real	0m59.770s
+user	0m59.510s
+sys	0m1.353s
+-----
+secure function 5
+
+real	2m51.094s
+user	2m52.303s
+sys	0m6.545s
+-----
+secure function 6
+
+real	0m51.038s
+user	0m50.811s
+sys	0m1.226s
+-----
+exception
+
+real	0m2.794s
+user	0m2.664s
+sys	0m0.189s
+-----

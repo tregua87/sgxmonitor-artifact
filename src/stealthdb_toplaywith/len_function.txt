@@ -1,0 +1,4 @@
+traced_batch|generateKeyEnclave|36
+traced_batch|loadKeyEnclave|28
+traced_batch|generateKeyEnclave|36
+traced_batch|loadKeyEnclave|28

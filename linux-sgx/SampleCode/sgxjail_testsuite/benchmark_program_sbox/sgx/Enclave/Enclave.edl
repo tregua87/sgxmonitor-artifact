@@ -1,0 +1,14 @@
+enclave {
+
+    trusted {
+        /* define ECALLs here. */
+        public void testOcalls(size_t amount_of_ocalls, size_t max);
+        public void testEcalls(int dummy);
+        public void testOcallsSingle(int dummy);
+    };
+
+    untrusted {
+        /* define OCALLs here. */
+        void testOcall(int dummy);
+    };
+};

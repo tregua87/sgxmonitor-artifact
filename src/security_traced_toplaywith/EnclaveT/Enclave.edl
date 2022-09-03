@@ -1,0 +1,13 @@
+enclave {
+
+    from "../../tracer/Tracer.edl" import *;
+
+    trusted {
+         public void topwn([user_check] char* buff, size_t buff_len);
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char *str);
+    };
+
+};

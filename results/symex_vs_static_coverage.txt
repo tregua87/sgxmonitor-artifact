@@ -1,0 +1,5 @@
+{'use_case': 'data_sgx-biniax2', 'static': 451, 'symex': 413, 'delta': 8.425720620842572, 'ignored_functions': ['_Z28sgx_CryptStore_freeCryptDataP24sgx_CryptStore_CryptData', '_Z24sgx_CryptStore_freeStoreP20sgx_CryptStore_Store', '_Z24sgx_CryptStore_fromBytesP20sgx_CryptStore_StorePh', 'sgx_CryptStore_fromBytes']}
+{'use_case': 'data_contact', 'static': 1042, 'symex': 998, 'delta': 4.222648752399232, 'ignored_functions': ['crecip']}
+{'use_case': 'data_custom', 'static': 122, 'symex': 107, 'delta': 12.295081967213115, 'ignored_functions': []}
+{'use_case': 'data_libdvdcss', 'static': 904, 'symex': 747, 'delta': 17.36725663716814, 'ignored_functions': ['_ZL9GetBusKeyP8dvdcss_s', '_ZL10DecryptKeyhPKhS0_Ph', 'sec_dvdcss_unscramble', '_ZL8CryptKeyiiPKhPh', 'sec_dvdcss_title', '_ZL12CrackDiscKeyPh', '_ZL15RecoverTitleKeyiPKhS0_S0_Ph', '_ZL14DecryptDiscKeyP8dvdcss_sPKhPh', 'sec_dvdcss_test']}
+{'use_case': 'data_stealthdb', 'static': 967, 'symex': 1009, 'delta': -4.343329886246122, 'ignored_functions': []}

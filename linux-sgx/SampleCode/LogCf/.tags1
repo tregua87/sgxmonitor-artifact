@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+EDGE_SIZE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^#define EDGE_SIZE /;"	macro	line:15	file:
+ba	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^unsigned long ba = 0x0;$/;"	variable	line:17
+n	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static unsigned int n[REF_N_SIZE_IN_UINT] = { 0 };$/;"	variable	line:19	file:
+e	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static unsigned int e[REF_E_SIZE_IN_UINT] = { 0 };$/;"	variable	line:20	file:
+rsa_pub_key	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static void* rsa_pub_key;$/;"	variable	line:22	file:
+OPT_KEY_SIZE_BYTE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^#define OPT_KEY_SIZE_BYTE /;"	macro	line:24	file:
+OPT_KEY_MAC_SIZE_BYTE	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^#define OPT_KEY_MAC_SIZE_BYTE /;"	macro	line:25	file:
+opt_key	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^unsigned char opt_key[OPT_KEY_SIZE_BYTE] = { 0 };$/;"	variable	line:27
+nonce	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static unsigned char nonce[REF_NONCE_SIZE] = { 0 };$/;"	variable	line:28	file:
+pub_bucket	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static bucket* pub_bucket;$/;"	variable	line:30	file:
+printf_2	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^int printf_2(const char* fmt, ...)$/;"	function	line:36	signature:(const char* fmt, ...)
+makeEndMsg	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void makeEndMsg() {$/;"	function	line:47	signature:()
+setBucket	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void setBucket(bucket *b) {$/;"	function	line:93	signature:(bucket *b)
+bootSecureCommunication	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void bootSecureCommunication(void) {$/;"	function	line:99	signature:(void)
+traceedgec	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void traceedgec(void* to) {$/;"	function	line:123	signature:(void* to)
+setBA	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void setBA(unsigned long basic_address) {$/;"	function	line:179	signature:(unsigned long basic_address)
+global_mutex	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^static sgx_thread_mutex_t global_mutex = SGX_THREAD_MUTEX_INITIALIZER;$/;"	variable	line:183	file:
+writeToBuffer	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void writeToBuffer(unsigned char *str, size_t str_len, entry_status A_COLOR) {$/;"	function	line:185	signature:(unsigned char *str, size_t str_len, entry_status A_COLOR)
+nextNonce	/home/flavio/linux-sgx/SampleCode/LogCf-8/Tracer/T-Tracer.cpp	/^void nextNonce() {$/;"	function	line:208	signature:()

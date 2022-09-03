@@ -1,0 +1,13 @@
+enclave {
+
+    from "../Tracer/Tracer.edl" import *;
+
+    trusted {
+         public void hello1(void);
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char *str);
+    };
+
+};

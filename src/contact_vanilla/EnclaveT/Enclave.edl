@@ -1,0 +1,85 @@
+/*
+ * Copyright (C) 2011-2018 Intel Corporation. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *   * Neither the name of Intel Corporation nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
+
+/* Enclave.edl - Top EDL file. */
+
+enclave {
+
+    include "sabd.h"
+    include "stdbool.h"
+    include "sgx_quote.h"
+    include "sgx_report.h"
+    include "sgxsd.h"
+
+    trusted {
+      public sgx_status_t sgxsd_enclave_node_init([in] const sgxsd_node_init_args_t *p_args);
+
+      public sgx_status_t sgxsd_enclave_get_next_report
+          (sgx_target_info_t qe_target_info, [out] sgx_report_t *p_report);
+      public sgx_status_t sgxsd_enclave_set_current_quote();
+
+      public sgx_status_t sgxsd_enclave_negotiate_request
+          ([in] const sgxsd_request_negotiation_request_t *p_request,
+           [out] sgxsd_request_negotiation_response_t *p_response);
+
+      public sgx_status_t sgxsd_enclave_server_start
+          ([in] const sgxsd_server_init_args_t *p_args,
+           sgxsd_server_state_handle_t state_handle);
+      public sgx_status_t sgxsd_enclave_server_call
+          ([in] const sgxsd_server_handle_call_args_t *p_args,
+           [in] const sgxsd_msg_header_t *msg_header,
+           [in, size=msg_size] uint8_t *msg_data, size_t msg_size,
+           sgxsd_msg_tag_t msg_tag, sgxsd_server_state_handle_t state_handle);
+      public sgx_status_t sgxsd_enclave_server_stop
+          ([in] const sgxsd_server_terminate_args_t *p_args,
+           sgxsd_server_state_handle_t state_handle);
+
+      // place holder
+      public void hello(void);
+    };
+
+    /*
+     * ocall_print_string - invokes OCALL to display string buffer inside the enclave.
+     *  [in]: copy the string buffer to App outside.
+     *  [string]: specifies 'str' is a NULL terminated buffer.
+     */
+    untrusted {
+
+        sgx_status_t sgxsd_ocall_reply
+            ([in] const sgxsd_msg_header_t *reply_header,
+             [in, size=reply_data_size] const uint8_t *reply_data, size_t reply_data_size,
+             sgxsd_msg_tag_t msg_tag);
+
+        // placeholder
+        void ocall_print_string([in, string] const char *str);
+    };
+
+};

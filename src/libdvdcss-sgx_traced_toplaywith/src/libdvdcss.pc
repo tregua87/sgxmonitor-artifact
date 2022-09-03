@@ -1,0 +1,10 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libdvdcss
+Description: DVD access and decryption library.
+Version: 1.4.2
+Libs: -L${libdir} -ldvdcss
+Cflags: -I${includedir} -I${includedir}/dvdcss

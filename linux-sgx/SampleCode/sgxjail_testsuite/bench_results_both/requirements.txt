@@ -1,0 +1,6 @@
+click
+numpy
+scipy
+pandas
+matplotlib
+matplotlib2tikz
