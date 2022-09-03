@@ -1,0 +1,9 @@
+*.o
+*.so
+!/sgxsdki/lib64/*.so
+.vscode/
+*.pyc
+analyzer/asms/enclave.signed.so.asm
+*.tmp
+src/contact_traced_batch/app
+src/contact_traced_toplaywith/app
