@@ -53,7 +53,8 @@ Only stealthdb + guide for VLC and sgx-biniax2
 
 A set of script for each *macro* step.  
 
-1) compile monitor + enclaves (not the one for snakegx? check its stability)
+1) compile monitor + enclaves 
+    - snakegx/security? check stability
 2) install stealthdb into postgres (to append to previous scripts)
 3) get models (symex, static, symex+static)
 4) run microbenchmark
