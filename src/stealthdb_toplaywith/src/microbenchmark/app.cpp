@@ -83,19 +83,19 @@ int main(int argc, char** argv) {
   loadKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH);
   dumpLen(MODE, "loadKeyEnclave", &actionCounter);
 
-  // // WARMUP
-  // for (int i = 0; i < MAX_WARM_UP; i++)
-  // {
-  //   generateKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH);
-  //   loadKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH);
-  // }
+  // WARMUP
+  for (int i = 0; i < MAX_WARM_UP; i++)
+  {
+    generateKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH);
+    loadKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH);
+  }
 
-  // for (int i = 0; i < MAX_TEST; i++) {
-  //   RUN_AND_DUMP(MODE, "generateKeyEnclave", generateKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH))
-  //   RUN_AND_DUMP(MODE, "loadKeyEnclave", loadKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH))
-  // }
+  for (int i = 0; i < MAX_TEST; i++) {
+    RUN_AND_DUMP(MODE, "generateKeyEnclave", generateKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH))
+    RUN_AND_DUMP(MODE, "loadKeyEnclave", loadKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH))
+  }
 
-  // printf("[INFO] StealthDB successfully returned.\n");
+  printf("[INFO] StealthDB successfully returned.\n");
 
   makeEndMsg(global_eid);
 
