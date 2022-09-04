@@ -1,17 +1,17 @@
 # SgxMonitor Artifact for ACSAC 2022
 
 These document summarizes and redirects to important sub-documents for
-installing and exercide the artifact.
+installing and exercising the artifact.
 
 - [Installation](#installation)
 - [Usage](#usage)
 
 ## Installation
 
-We provide three options to evaluate the artifcat. Reviewers can choose the
-options that most fit their needs.
+We provide three options to install the artifcat. Reviewers can choose the
+one that most fits their needs.
 
-- SSH access to precunfigured environment ([here](#ssh-access))
+- SSH access to a precunfigured environment ([here](#ssh-access))
 - Downloading docker container ([here](#download-docker-container))
 - Installing from source ([here](INSTALLATION.md))
 
@@ -20,16 +20,20 @@ options that most fit their needs.
 Use the code below to access the machine
 ```
 ssh -h <magic magic magic>
+docker run -it sgx-monitor-artifact
 ```
+
+From here, please follow the instruction in [usage](#usage).
+
 
 ### Download Docker Container
 
-This link is to download an already build Docker container (TODO). In addition,
-one can build and run the docker from skracth with:
+We provide a running Docker container at this link (**TODO**). In addition, one
+can build and run the docker from scratch with:
 ```
  ./run_docker.sh
 ```
-**NOTE:** the host machine needs to install the Intel SGX Legacy driver
+**NOTE:** the host machine needs the Intel SGX Legacy driver
 (https://github.com/intel/linux-sgx-driver). We succesfully tested the artifcat
 with last version.
 
@@ -53,7 +57,7 @@ We organize the flow by following the evaluation section (Section 7).
 
 ### Macro-benchmark (Section 7.2.2 -- Figure 5)
 
-**Note:** running macro-benchmark requires to use human-interactive software
+**Note:** Some macro-benchmark requires to use human-interactive software
 (VLC and SGX-Biniax2), that is hardly scriptable. We thus omit these from the
 artifact. However, we leave the whole documented code and the instructions to
 install and try our prototypes indipendently.
@@ -69,3 +73,16 @@ install and try our prototypes indipendently.
 
 - script for the complexity
 - script for the table
+
+---
+
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
