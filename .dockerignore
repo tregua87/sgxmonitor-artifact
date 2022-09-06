@@ -1,3 +1,2 @@
 docker/Dockerfile
 run_docker.sh
-run_compileall.sh

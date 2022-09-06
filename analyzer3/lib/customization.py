@@ -1,6 +1,8 @@
 
 # project imports
 import module, shadowstack, tracer, common, loopsmanager, hashlib
+from subprocess import Popen, PIPE
+from shlex import split
 from angr import *
 
 # NOTE: kinda "virtual class" for customization
@@ -91,6 +93,17 @@ class Libdvdcss(Customizations):
     def __init__(self, a):
         super(Libdvdcss, self).__init__(a)
         self.functions = ["_ZL9GetBusKeyP8dvdcss_s"]
+
+        enclave_bin = a.enclave_bin
+
+        p1 = Popen(split(f"objdump -M intel -d  {enclave_bin}"), stdout=PIPE)
+        p2 = Popen(split("grep \"mov    DWORD PTR \[rbp-0x3c\],0xffffffff\""), stdin=p1.stdout, stdout=PIPE)
+        p3 = Popen(split("awk -F \":\" '{sub(/^[ \t]+/, \"\"); print \"0x\"$1}'"), stdin=p2.stdout, stdout=PIPE)
+
+        self.hex_to_hook = int(p3.stdout.read(), 0)
+
+        print(f"[INFO] hex_to_hook: {self.hex_to_hook:x}")
+
     
     def make_arguments(self, func, state):
         if func not in self.functions:
@@ -100,8 +113,7 @@ class Libdvdcss(Customizations):
         print("[INFO] making args for {}".format(func))
 
         # 7b47:	c7 45 c4 ff ff ff ff 	mov    DWORD PTR [rbp-0x3c],0xffffffff
-        # self.a.project.hook(0x7b47, set_i_ret_unconstraint, length=7)
-        self.a.project.hook(0x75b7, set_i_ret_unconstraint, length=7)
+        self.a.project.hook(self.hex_to_hook, set_i_ret_unconstraint, length=7)
 
 def set_i_ret_unconstraint(state):
     print("[INFO] set i_ret unconstraint")

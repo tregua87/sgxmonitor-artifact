@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import argparse, json, sys
+import argparse, json, sys, os
 
 def getOperands(l):
     # print(l)
@@ -29,6 +29,9 @@ def main():
 
     normalized_models = {}
     for r in raw_models:
+        if not os.path.isfile(r):
+            print(f"[WARNING] {r} does not exist!")
+            continue
         with open(r, 'r') as m:
 
             funName = None

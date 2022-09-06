@@ -697,14 +697,15 @@ def main():
         if "anal" in v:
             anal_time += [v["anal"]]
 
-    print(f"n_function {n_function}")
-    print(f"n_static function {n_static}")
-    x = sum(anal_time)
-    print(f"tot. anal time {x} [s]")
-    x = statistics.mean(anal_time)
-    print(f"avg. anal time {x} [s]")
-    x = statistics.stdev(anal_time)
-    print(f"std. dev anal time {x}")
+    with open("statistics.txt", "w") as sf:
+        sf.write(f"n_function {n_function}\n")
+        sf.write(f"n_static function {n_static}\n")
+        x = sum(anal_time)
+        sf.write(f"tot. anal time {x} [s]\n")
+        x = statistics.mean(anal_time)
+        sf.write(f"avg. anal time {x} [s]\n")
+        x = statistics.stdev(anal_time)
+        sf.write(f"std. dev anal time {x}\n")
 
 if __name__ == "__main__":
     main()
