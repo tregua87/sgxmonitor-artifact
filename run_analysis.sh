@@ -67,8 +67,8 @@ fi
 # for custom
 if [ ! -d "data_custom" ]; then
     rm loops.txt || true
-    ./extract_loops.py -e ../src/custom_traced_batch/enclave.signed.so
-    ./explore_decomposed_sym_enclave.py -e ../src/custom_traced_batch/enclave.signed.so -l loops.txt 
+    ./extract_loops.py -e ../src/custom_traced_toplaywith/enclave.signed.so
+    ./explore_decomposed_sym_enclave.py -e ../src/custom_traced_toplaywith/enclave.signed.so -l loops.txt 
     ./normalize_model.py -o model-n.txt -r model.txt model-insensitive.txt
     mkdir data_custom
     mv loops.txt data_custom/
@@ -77,6 +77,56 @@ if [ ! -d "data_custom" ]; then
     mv model-n.txt data_custom/
     mv loop_log.txt data_custom/
     mv statistics.txt data_custom/
+fi
+
+popd
+
+pushd analyzer2
+
+
+# for signal-contact
+if [ ! -d "data_contact" ]; then
+    ./explore_decomposed_stc_enclave.py -e ../src/contact_traced_toplaywith/enclave.signed.so 
+    ./normalize_model.py -o model-n.txt -r model.txt
+    mkdir data_contact
+    mv model.txt data_contact/
+    mv model-n.txt data_contact/
+fi
+
+# for libdvdcss
+if [ ! -d "data_libdvdcss" ]; then
+    ./explore_decomposed_stc_enclave.py -e ../src/libdvdcss-sgx_traced_toplaywith/enclave/enclave.signed.so 
+    ./normalize_model.py -o model-n.txt -r model.txt
+    mkdir data_libdvdcss
+    mv model.txt data_libdvdcss/
+    mv model-n.txt data_libdvdcss/
+fi
+
+# for sgx-biniax2
+if [ ! -d "data_sgx-biniax2" ]; then
+    ./explore_decomposed_stc_enclave.py -e ../src/sgx-biniax2_traced_toplaywith/enclave.signed.so
+    ./normalize_model.py -o model-n.txt -r model.txt
+    mkdir data_sgx-biniax2
+    mv model.txt data_sgx-biniax2/
+    mv model-n.txt data_sgx-biniax2/
+fi
+
+# for stealthdb
+if [ ! -d "data_stealthdb" ]; then
+    ./explore_decomposed_stc_enclave.py -e ../src/stealthdb_toplaywith/build/enclave.debug.signed.so
+    ./normalize_model.py -o model-n.txt -r model.txt
+    mkdir data_stealthdb
+    mv model.txt data_stealthdb/
+    mv model-n.txt data_stealthdb/
+fi
+
+# for custom
+if [ ! -d "data_custom" ]; then
+    ./explore_decomposed_stc_enclave.py -e ../src/custom_traced_toplaywith/enclave.signed.so
+    ./normalize_model.py -o model-n.txt -r model.txt
+    mkdir data_custom
+    mv model.txt data_custom/
+    mv model-n.txt data_custom/
 fi
 
 popd
