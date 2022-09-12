@@ -1,6 +1,6 @@
 include vars.mk
 
-APP_DIR=microbenchmark
+APP_DIR=microbenchmark_batch
 
 CPPFLAGS := -DTOKEN_FILENAME=\"$(STEALTHDIR)/$(ENCLAVE_NAME).token\" \
 			-DENCLAVE_FILENAME=\"$(STEALTHDIR)/$(ENCLAVE_NAME).signed.so\" \

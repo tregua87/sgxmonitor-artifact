@@ -16,7 +16,7 @@
 #include "Client.h"
 #include "Async_Bucket.h"
 
-#define MODE "traced_batch"
+#define MODE "traced_length"
 
 /* Global EID shared by multiple threads */
 sgx_enclave_id_t global_eid = 0;

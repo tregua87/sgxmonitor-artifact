@@ -8,7 +8,7 @@ all:
 	$(MAKE) -C $(shell dirname $(UNTRUSTED_MK)) -f $(shell basename $(UNTRUSTED_MK)) $@
 	$(MAKE) -C $(shell dirname $(ENCLAVE_MK)) -f $(shell basename $(ENCLAVE_MK)) $@
 	$(MAKE) -C $(shell dirname $(APP_MK)) -f $(shell basename $(APP_MK)) $@
-	# $(MAKE) -C $(shell dirname $(MICROBENCHMARK_MK)) -f $(shell basename $(MICROBENCHMARK_MK)) $@
+	$(MAKE) -C $(shell dirname $(MICROBENCHMARK_MK)) -f $(shell basename $(MICROBENCHMARK_MK)) $@
 
 .PHONY: docker
 docker:

@@ -580,7 +580,8 @@ class Analysis(object):
                     for l in f:
                         if l:
                             (look_addr, way_out, inter) = [int(t, 16) for t in l.split()]
-                            addr_loops[look_addr] = (way_out, inter)
+                            if way_out != inter:
+                                addr_loops[look_addr] = (way_out, inter)
                 else:
                     print(" ERROR! LOOP FILE {} IS NOT COMPATIBILE WITH THE ENCLAVE! [{}]".format(self.loop_file, md5enclave))
                     print(" LOOK AT `extract_loop.py SCRIPT")

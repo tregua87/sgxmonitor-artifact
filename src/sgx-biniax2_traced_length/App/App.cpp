@@ -52,7 +52,7 @@ void ocall_print_string(const char *str)
 }
 
 
-sgx_enclave_id_t eid;
+sgx_enclave_id_t eid = 0;
 extern bucket_t bucket;
 int actionCounter;
 

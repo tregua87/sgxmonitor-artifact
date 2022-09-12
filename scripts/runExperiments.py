@@ -1,54 +1,70 @@
 #!/usr/bin/python3
 
-import sys, os, argparse, subprocess, time
+import sys, os, argparse, subprocess, time, psutil
 
-HOME_SGXMONITOR = "/home/flavio/SgxMonitor"
+HOME_SGXMONITOR = os.getenv('SGXMONITOR_PATH')
 
-CUSTOM_VANILLA_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'custom_vanilla')
-CUSTOM_VANILLA = os.path.join(CUSTOM_VANILLA_DIR, 'app')
-
-CONTACT_VANILLA_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'contact_vanilla')
-CONTACT_VANILLA = os.path.join(CONTACT_VANILLA_DIR, 'app')
-
-# MONITOR_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'monitor')
-# MONITOR = os.path.join(MONITOR_DIR, 'monitor')
-
-# CUSTOM_TRACED_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'custom_traced')
-# CUSTOM_TRACED = os.path.join(CUSTOM_TRACED_DIR, 'app')
-
-# CONTACT_TRACED_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'contact_traced')
-# CONTACT_TRACED = os.path.join(CONTACT_TRACED_DIR, 'app')
-
+# monitor paths
 MONITOR_BATCH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'monitor_batch')
 MONITOR_BATCH = os.path.join(MONITOR_BATCH_DIR, 'monitor')
+MONITOR_LENGTH_DIR  = os.path.join(HOME_SGXMONITOR, 'src', 'monitor_length')
+MONITOR_LENGTH = os.path.join(MONITOR_LENGTH_DIR, 'monitor')
 
-CONTACT_TRACED_BATCH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'contact_traced_batch')
-CONTACT_TRACED_BATCH = os.path.join(CONTACT_TRACED_BATCH_DIR, 'app')
-
+# custom paths
+CUSTOM_VANILLA_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'custom_vanilla')
+CUSTOM_VANILLA = os.path.join(CUSTOM_VANILLA_DIR, 'app')
 CUSTOM_TRACED_BATCH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'custom_traced_batch')
 CUSTOM_TRACED_BATCH = os.path.join(CUSTOM_TRACED_BATCH_DIR, 'app')
-
-# CUSTOM_TRACED_LOCAL_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'custom_traced_local')
-# CUSTOM_TRACED_LOCAL = os.path.join(CUSTOM_TRACED_LOCAL_DIR, 'app')
-
-# CONTACT_TRACED_LOCAL_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'contact_traced_local')
-# CONTACT_TRACED_LOCAL = os.path.join(CONTACT_TRACED_LOCAL_DIR, 'app')
-
 CUSTOM_TRACED_LENGTH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'custom_traced_length')
 CUSTOM_TRACED_LENGTH = os.path.join(CUSTOM_TRACED_LENGTH_DIR, 'app')
 
+# contact paths
+CONTACT_TRACED_BATCH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'contact_traced_batch')
+CONTACT_TRACED_BATCH = os.path.join(CONTACT_TRACED_BATCH_DIR, 'app')
 CONTACT_TRACED_LENGTH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'contact_traced_length')
 CONTACT_TRACED_LENGTH = os.path.join(CONTACT_TRACED_LENGTH_DIR, 'app')
+CONTACT_VANILLA_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'contact_vanilla')
+CONTACT_VANILLA = os.path.join(CONTACT_VANILLA_DIR, 'app')
 
-MONITOR_LENGTH_DIR  = os.path.join(HOME_SGXMONITOR, 'src', 'monitor_length')
-MONITOR_LENGTH = os.path.join(MONITOR_LENGTH_DIR, 'monitor')
+# sgx-biniax2 paths
+SGXBINIAX2_VANILLA_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'sgx-biniax2_vanilla')
+SGXBINIAX2_VANILLA = os.path.join(SGXBINIAX2_VANILLA_DIR, 'app')
+SGXBINIAX2_TRACED_BATCH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'sgx-biniax2_traced_batch')
+SGXBINIAX2_TRACED_BATCH = os.path.join(SGXBINIAX2_TRACED_BATCH_DIR, 'app')
+SGXBINIAX2_TRACED_LENGTH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'sgx-biniax2_traced_length')
+SGXBINIAX2_TRACED_LENGTH = os.path.join(SGXBINIAX2_TRACED_LENGTH_DIR, 'app')
+
+# stealthdb paths
+STEALTHDB_VANILLA_DIR_BASE = os.path.join(HOME_SGXMONITOR, 'src', 'stealthdb_vanilla')
+STEALTHDB_VANILLA_DIR = os.path.join(STEALTHDB_VANILLA_DIR_BASE, 'src', 'microbenchmark')
+STEALTHDB_VANILLA = os.path.join(STEALTHDB_VANILLA_DIR, 'app')
+STEALTHDB_TRACED_BATCH_DIR_BASE = os.path.join(HOME_SGXMONITOR, 'src', 'stealthdb_traced_batch')
+STEALTHDB_TRACED_BATCH_DIR = os.path.join(STEALTHDB_TRACED_BATCH_DIR_BASE, 'src', 'microbenchmark')
+STEALTHDB_TRACED_BATCH = os.path.join(STEALTHDB_TRACED_BATCH_DIR, 'app')
+STEALTHDB_TRACED_LENGTH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'stealthdb_traced_length')
+STEALTHDB_TRACED_LENGTH = os.path.join(STEALTHDB_TRACED_LENGTH_DIR, 'app')
 
 def runBenchmark(monitor, monitor_dir, tracer, tracer_dir):
     if monitor:
         subprocess.Popen([monitor], shell=True, stdin=None, stdout=None, stderr=None, close_fds=True, cwd=monitor_dir)
         time.sleep(2)
     subprocess.Popen([tracer], cwd=tracer_dir)
+    
     time.sleep(2)
+
+    while "monitor" in [p.name() for p in psutil.process_iter()]:
+        # monitor active but not app running, kill the monitor
+        print("[INFO] wait! monitor is still running, don't Ctrl+C pls")
+        pp_app = [p for p in psutil.process_iter() if p.name() == "app"]
+        pp_mon = [p for p in psutil.process_iter() if p.name() == "monitor"]
+        if any([pp.status() == 'zombie' for pp in pp_app]):
+            for p in pp_mon:
+                p.kill()
+            for p in pp_app:
+                p.kill()
+
+        time.sleep(10)
+
 
 def str2bool(v):
     if isinstance(v, bool):
@@ -59,6 +75,24 @@ def str2bool(v):
         return False
     else:
         raise argparse.ArgumentTypeError('Boolean value expected.')
+
+def installEncdbSgxMonitor():
+    if os.geteuid() == 0:
+        cmd_str = "make install"
+    else:
+        cmd_str = "sudo make install"
+    print(cmd_str)
+    cmd = cmd_str.split(' ')
+    result = subprocess.run(cmd, cwd="/home/flavio/SgxMonitor/src/stealthdb_toplaywith/")
+
+def installEncdbVanilla():
+    if os.geteuid() == 0:
+        cmd_str = "make install"
+    else:
+        cmd_str = "sudo make install"
+    print(cmd_str)
+    cmd = cmd_str.split(' ')
+    result = subprocess.run(cmd, cwd=STEALTHDB_VANILLA_DIR_BASE)
 
 def main():
 
@@ -78,23 +112,28 @@ def main():
     if os.path.isfile(benchmarkfile) and overwrite:
         os.remove(benchmarkfile)
 
-    print("Now I run my bullshits")
+    print("Now I run the microbenchmark")
 
-    # # THIS ONE!
+    # custom
     runBenchmark(None, None, CUSTOM_VANILLA, CUSTOM_VANILLA_DIR)
-    runBenchmark(None, None, CONTACT_VANILLA, CONTACT_VANILLA_DIR)
-    # # runBenchmark(MONITOR, MONITOR_DIR, CUSTOM_TRACED, CUSTOM_TRACED_DIR)
-    # # runBenchmark(MONITOR, MONITOR_DIR, CONTACT_TRACED, CONTACT_TRACED_DIR)
-
-    # THIS ONE!
     runBenchmark(MONITOR_BATCH, MONITOR_BATCH_DIR, CUSTOM_TRACED_BATCH, CUSTOM_TRACED_BATCH_DIR)
-    runBenchmark(MONITOR_BATCH, MONITOR_BATCH_DIR, CONTACT_TRACED_BATCH, CONTACT_TRACED_BATCH_DIR)
-    # # runBenchmark(None, None, CUSTOM_TRACED_LOCAL, CUSTOM_TRACED_LOCAL_DIR)
-    # # runBenchmark(None, None, CONTACT_TRACED_LOCAL, CONTACT_TRACED_LOCAL_DIR)
-
-    # # THIS ONE!
     runBenchmark(MONITOR_LENGTH, MONITOR_LENGTH_DIR, CUSTOM_TRACED_LENGTH, CUSTOM_TRACED_LENGTH_DIR)
+
+    # contact
+    runBenchmark(None, None, CONTACT_VANILLA, CONTACT_VANILLA_DIR)
+    runBenchmark(MONITOR_BATCH, MONITOR_BATCH_DIR, CONTACT_TRACED_BATCH, CONTACT_TRACED_BATCH_DIR)
     runBenchmark(MONITOR_LENGTH, MONITOR_LENGTH_DIR, CONTACT_TRACED_LENGTH, CONTACT_TRACED_LENGTH_DIR)
+
+    # sgx-biniax2
+    runBenchmark(None, None, SGXBINIAX2_VANILLA, SGXBINIAX2_VANILLA_DIR)
+    runBenchmark(MONITOR_BATCH, MONITOR_BATCH_DIR, SGXBINIAX2_TRACED_BATCH, SGXBINIAX2_TRACED_BATCH_DIR)
+    runBenchmark(MONITOR_LENGTH, MONITOR_LENGTH_DIR, SGXBINIAX2_TRACED_LENGTH, SGXBINIAX2_TRACED_LENGTH_DIR)
+
+    # steathdb
+    installEncdbVanilla()
+    runBenchmark(None, None, SGXBINIAX2_VANILLA, SGXBINIAX2_VANILLA_DIR)
+    # runBenchmark(MONITOR_BATCH, MONITOR_BATCH_DIR, SGXBINIAX2_TRACED_BATCH, SGXBINIAX2_TRACED_BATCH_DIR)
+    # runBenchmark(MONITOR_LENGTH, MONITOR_LENGTH_DIR, SGXBINIAX2_TRACED_LENGTH, SGXBINIAX2_TRACED_LENGTH_DIR)
 
 
 if __name__ == "__main__":

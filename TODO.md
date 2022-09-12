@@ -5,6 +5,15 @@ These are the evaluations:
 ## Fixes:
 - collect "statistics.txt" into coverage-data.txt coherently
 
+microbenchmark (`/scripts/runExperiments.py`)
+- to add:
+  - stealthdb (vanilla - traced_batch - traced_length)
+    - split toplathwith into traced_batch and traced_length (and add to `run_compileall.sh`)
+    - in `/workspace/sgxmonitor-artifact/stealhdb_benchmark`:
+        - check if user root -> no sudo!
+    - add env vars
+- create result folder?
+
 ## Security evaluation:
 Control-flow attacks (Sec. 7.1.1):
 To check if I need to compile or use a pre-compiled version.

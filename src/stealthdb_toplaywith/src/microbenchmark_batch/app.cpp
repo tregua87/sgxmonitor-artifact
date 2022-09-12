@@ -16,7 +16,7 @@
 #include "Client.h"
 #include "Async_Bucket.h"
 
-#define MODE "vanilla"
+#define MODE "traced_batch"
 
 /* Global EID shared by multiple threads */
 sgx_enclave_id_t global_eid = 0;
@@ -46,6 +46,13 @@ int main(int argc, char** argv) {
   sgx_status_t ret = SGX_ERROR_UNEXPECTED;
   int updated;
 
+  // 0 -> single entries fashion
+  if(initialize_client(1) < 0) {
+    cout << "Enter a character before exit ..." << endl;
+    getchar();
+    return -1;
+  }
+
 	cout << "Enclave file: " << ENCLAVE_FILENAME << endl;
   ret = sgx_create_enclave(ENCLAVE_FILENAME, SGX_DEBUG_FLAG, &token, &updated, &global_eid, NULL);
   if (ret != SGX_SUCCESS) {
@@ -55,8 +62,16 @@ int main(int argc, char** argv) {
     return -1;
   }
 
-  printf("[INFO] Start warmup!\n");
+  if(initilize_ra() < 0) {
+    cout << "Enter a character before exit ..." << endl;
+    getchar();
+    return -1;
+  }
 
+  setActionCounter(global_eid, &actionCounter);
+  setBucket(global_eid, &bucket);
+
+  printf("[INFO] Start warmup!\n");
 
   int resp_enclave2;
 	uint8_t* sealed_key_b_X = new uint8_t[SEALED_KEY_LENGTH];
