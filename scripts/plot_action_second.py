@@ -6,11 +6,8 @@ import matplotlib.pyplot as plt
 import sys
 from matplotlib.pyplot import cm
 from matplotlib import colors
-from matplotlib.patches import Patch
-from matplotlib.lines import Line2D
-from matplotlib.ticker import FormatStrFormatter
-from matplotlib.ticker import StrMethodFormatter
 import numpy as np
+from matplotlib.lines import Line2D
 import math
 
 def anonymFunc(fun):
@@ -36,114 +33,113 @@ def anonymFunc(fun):
     
     return m[fun]
 
-bFile = sys.argv[1]
+fPath = sys.argv[1]
 
-tags = ["traced_batch", "vanilla"]
+fLen = sys.argv[2]
 
 stats = {}
 
-with open(bFile) as f:
-    for l in f:
-        l_arr = l.strip().split("|")
-        # print(l_arr)
+time = {}
+lens = {}
 
-        mode = l_arr[0]
-        func = l_arr[1]
-        time = l_arr[2]
+with open(fLen, 'r') as f:
+    cc = csv.reader(f, delimiter='|')
+    for c in cc:
+        if len(c) == 0:
+            continue
+        k = c[0]
+        l = c[1]
+        lens[k] = int(l)
 
-        record = stats.get(func, {})
+with open(fPath, 'r') as f:
+    cc = csv.reader(f, delimiter='|')
+    for c in cc:
 
-        acc_time = record.get(mode, 0)
+        k = c[1]
+        m = c[0]
 
-        acc_time += float(time)
+        tt = stats.get(k, {})
 
-        record[mode] = acc_time
+        s = tt.get(m, [])
 
-        stats[func] = record
+        s.append(int(c[2]))
 
-d = {}
+        tt[m] = s
 
-xs = []
-for k, v in stats.items():
-    x = v["traced_batch"]/v["vanilla"]
-    v["ratio"] = x
-    stats[k] = v
-    # print("{} : {}".format(k, v))
-    d[k] = x
-    xs += [x]
-    print(f"{k} = {x}")
+        stats[k] = tt
 
-median = statistics.median(xs)
+for k, ms in stats.items():
+    v = statistics.mean(ms['traced_batch'])
+    time[anonymFunc(k)] = v
 
-print(f"median = {median}")
+p = []
+for k1, l in lens.items():
+    k = anonymFunc(k1)
+    if k in time:
+        t = time[k]
+        # p.append((x,y))
+        s = l/t*1000000
+        p.append((k,s))
+        print("{} : {}".format(k, s))
 
-# print(stats)
-# exit()
+p.sort(key=lambda tup: tup[0])
 
-# d = {'sgxsd_enclave_node_init': 7.727545242589098,
-#     'sgxsd_enclave_set_current_quote': 3.947206615074738,
-#     'sgxsd_enclave_negotiate_request': 309.98861904351077,
-#     'sgxsd_enclave_server_start': 9.939472861756434,
-#     'sgxsd_enclave_server_call': 222.3604570978229,
-#     'sgxsd_enclave_server_stop': 8.784381858083394,
-#     'hello1': 4.617550515725728,
-#     'hello2': 2.273466630640368}
+val_x = [l for l,t in p]
+val_y = [t for l,t in p]
 
-d2 = [(anonymFunc(a),b) for a,b in d.items()]
-d2.sort(key=lambda x: x[0])
+print([t for l,t in p])
 
-lbl = [ k for k, v in d2 ]
-val = [ v for k, v in d2 ]
+median = statistics.median([t for l,t in p])
+print(f"median : {median}")
+
+# print(val_x)
+
+fig, ax = plt.subplots(figsize=(10,4))
+plt.ylabel('#action/sec.', fontsize=18)
+plt.xlabel('Secure function', fontsize=18)
+# plt.title('Micro-benchmark')
 
 # cmap = cm.get_cmap('Spectral')
 
-fig, ax = plt.subplots(figsize=(10,4))
 ax.set_yscale('log')
-barlist = plt.bar(lbl, val, color=(0.2, 0.4, 0.6, 0.6))
-
-# ax.yaxis.set_major_formatter(FormatStrFormatter('%sx'))
-ax.yaxis.set_major_formatter(StrMethodFormatter('{x:.0f}x'))
+barlist = plt.bar(val_x, val_y, color=(0.2, 0.4, 0.6, 0.6))
 
 bar_colors = []
 bar_labels = []
 bar_todo = ['bx', 'ct', 'sd', 'ut']
 
 for i in range(len(barlist)):
-    if lbl[i].startswith('bx'):
+    if val_x[i].startswith('bx'):
         barlist[i].set_color('#c40000')
         if 'bx' in bar_todo:
             bar_colors += [Line2D([0], [0], color='#c40000', lw=4)]
             bar_labels += ['SGX-Biniax2']
             bar_todo.remove('bx')
-    elif lbl[i].startswith('ct'):
+    elif val_x[i].startswith('ct'):
         barlist[i].set_color('#00a30e')
         if 'ct' in bar_todo:
             bar_colors += [Line2D([0], [0], color='#00a30e', lw=4)]
             bar_labels += ['Contact']
             bar_todo.remove('ct')
-    elif lbl[i].startswith('sd'):
+    elif val_x[i].startswith('sd'):
         barlist[i].set_color('#007da3')
         if 'sd' in bar_todo:
             bar_colors += [Line2D([0], [0], color='#007da3', lw=4)]
             bar_labels += ['StealthDB']
             bar_todo.remove('sd')
-    elif lbl[i].startswith('ut'):
+    elif val_x[i].startswith('ut'):
         barlist[i].set_color('#5100a3')
         if 'ut' in bar_todo:
             bar_colors += [Line2D([0], [0], color='#5100a3', lw=4)]
             bar_labels += ['unit-test']
             bar_todo.remove('ut')
-
-plt.ylabel('slowdown', fontsize=18)
-plt.xlabel('Secure function', fontsize=18)
-
 plt.legend(bar_colors, bar_labels, loc='upper left', prop={'size': 14})
 
+plt.tight_layout()
 plt.yticks(fontsize=14)
 plt.xticks(fontsize=14)
 ax.plot([-0.5, 17.5], [median, median], "k--", color='red')
-plt.tight_layout()
-# plt.autoscale(True)  
-plt.savefig('multiply.eps', bbox_inches='tight', dpi=100, format='eps')
-# plt.savefig('multiply.jpg', bbox_inches='tight', dpi=100, format='jpg')
+plt.autoscale()  
+# plt.savefig('action-second.eps', bbox_inches='tight', dpi=100, format='eps')
+plt.savefig('action-second.jpg', bbox_inches='tight', dpi=100, format='jpg')
 # plt.show()

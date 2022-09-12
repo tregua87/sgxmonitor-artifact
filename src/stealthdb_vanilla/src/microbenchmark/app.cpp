@@ -23,20 +23,6 @@ sgx_enclave_id_t global_eid = 0;
 extern bucket_t bucket;
 int actionCounter;
 
-int initilize_ra() {
-
-  // for the fucking remote attestation!
-  // https://github.com/intel/sgx-ra-sample
-
-  // other peoples with my problems:
-  // https://software.intel.com/en-us/forums/intel-software-guard-extensions-intel-sgx/topic/814779
-
-  bootSecureCommunication(global_eid);
-
-  return 0;
-}
-
-
 using namespace std;
 
 
@@ -74,8 +60,6 @@ int main(int argc, char** argv) {
   }
 
   printf("[INFO] StealthDB successfully returned.\n");
-
-  makeEndMsg(global_eid);
 
   /* Destroy the enclave */
   sgx_destroy_enclave(global_eid);

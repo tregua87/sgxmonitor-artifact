@@ -6,13 +6,8 @@ These are the evaluations:
 - collect "statistics.txt" into coverage-data.txt coherently
 
 microbenchmark (`/scripts/runExperiments.py`)
-- to add:
-  - stealthdb (vanilla - traced_batch - traced_length)
-    - split toplathwith into traced_batch and traced_length (and add to `run_compileall.sh`)
-    - in `/workspace/sgxmonitor-artifact/stealhdb_benchmark`:
-        - check if user root -> no sudo!
-    - add env vars
 - create result folder?
+- polt: plot_action_second.py
 
 ## Security evaluation:
 Control-flow attacks (Sec. 7.1.1):

@@ -47,13 +47,12 @@ int main(int argc, char** argv) {
   int updated;
 
   // 0 -> single entries fashion
-  if(initialize_client(1) < 0) {
+  if(initialize_client(0) < 0) {
     cout << "Enter a character before exit ..." << endl;
     getchar();
     return -1;
   }
 
-// #define ENCLAVE_FILENAME "/home/flavio/SgxMonitor/src/stealthdb_toplaywith/src/enclave/enclave.debug.signed.so"
 	cout << "Enclave file: " << ENCLAVE_FILENAME << endl;
   ret = sgx_create_enclave(ENCLAVE_FILENAME, SGX_DEBUG_FLAG, &token, &updated, &global_eid, NULL);
   if (ret != SGX_SUCCESS) {
@@ -82,18 +81,6 @@ int main(int argc, char** argv) {
   dumpLen(MODE, "generateKeyEnclave", &actionCounter);
   loadKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH);
   dumpLen(MODE, "loadKeyEnclave", &actionCounter);
-
-  // WARMUP
-  for (int i = 0; i < MAX_WARM_UP; i++)
-  {
-    generateKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH);
-    loadKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH);
-  }
-
-  for (int i = 0; i < MAX_TEST; i++) {
-    RUN_AND_DUMP(MODE, "generateKeyEnclave", generateKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH))
-    RUN_AND_DUMP(MODE, "loadKeyEnclave", loadKeyEnclave(global_eid, &resp_enclave2, sealed_key_b_X, SEALED_KEY_LENGTH))
-  }
 
   printf("[INFO] StealthDB successfully returned.\n");
 

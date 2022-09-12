@@ -38,11 +38,12 @@ SGXBINIAX2_TRACED_LENGTH = os.path.join(SGXBINIAX2_TRACED_LENGTH_DIR, 'app')
 STEALTHDB_VANILLA_DIR_BASE = os.path.join(HOME_SGXMONITOR, 'src', 'stealthdb_vanilla')
 STEALTHDB_VANILLA_DIR = os.path.join(STEALTHDB_VANILLA_DIR_BASE, 'src', 'microbenchmark')
 STEALTHDB_VANILLA = os.path.join(STEALTHDB_VANILLA_DIR, 'app')
-STEALTHDB_TRACED_BATCH_DIR_BASE = os.path.join(HOME_SGXMONITOR, 'src', 'stealthdb_traced_batch')
-STEALTHDB_TRACED_BATCH_DIR = os.path.join(STEALTHDB_TRACED_BATCH_DIR_BASE, 'src', 'microbenchmark')
+STEALTHDB_TRACED_TOPLAYWITH_DIR_BASE = os.path.join(HOME_SGXMONITOR, 'src', 'stealthdb_toplaywith')
+STEALTHDB_TRACED_BATCH_DIR = os.path.join(STEALTHDB_TRACED_TOPLAYWITH_DIR_BASE, 'src', 'microbenchmark_batch')
 STEALTHDB_TRACED_BATCH = os.path.join(STEALTHDB_TRACED_BATCH_DIR, 'app')
-STEALTHDB_TRACED_LENGTH_DIR = os.path.join(HOME_SGXMONITOR, 'src', 'stealthdb_traced_length')
+STEALTHDB_TRACED_LENGTH_DIR = os.path.join(STEALTHDB_TRACED_TOPLAYWITH_DIR_BASE, 'src', 'microbenchmark_length')
 STEALTHDB_TRACED_LENGTH = os.path.join(STEALTHDB_TRACED_LENGTH_DIR, 'app')
+
 
 def runBenchmark(monitor, monitor_dir, tracer, tracer_dir):
     if monitor:
@@ -83,7 +84,7 @@ def installEncdbSgxMonitor():
         cmd_str = "sudo make install"
     print(cmd_str)
     cmd = cmd_str.split(' ')
-    result = subprocess.run(cmd, cwd="/home/flavio/SgxMonitor/src/stealthdb_toplaywith/")
+    result = subprocess.run(cmd, cwd=STEALTHDB_TRACED_TOPLAYWITH_DIR_BASE)
 
 def installEncdbVanilla():
     if os.geteuid() == 0:
@@ -131,9 +132,11 @@ def main():
 
     # steathdb
     installEncdbVanilla()
-    runBenchmark(None, None, SGXBINIAX2_VANILLA, SGXBINIAX2_VANILLA_DIR)
-    # runBenchmark(MONITOR_BATCH, MONITOR_BATCH_DIR, SGXBINIAX2_TRACED_BATCH, SGXBINIAX2_TRACED_BATCH_DIR)
-    # runBenchmark(MONITOR_LENGTH, MONITOR_LENGTH_DIR, SGXBINIAX2_TRACED_LENGTH, SGXBINIAX2_TRACED_LENGTH_DIR)
+    runBenchmark(None, None, STEALTHDB_VANILLA, STEALTHDB_VANILLA_DIR)
+    installEncdbSgxMonitor()
+    runBenchmark(MONITOR_BATCH, MONITOR_BATCH_DIR, STEALTHDB_TRACED_BATCH, STEALTHDB_TRACED_BATCH_DIR)
+    runBenchmark(MONITOR_LENGTH, MONITOR_LENGTH_DIR, STEALTHDB_TRACED_LENGTH, STEALTHDB_TRACED_LENGTH_DIR)
+
 
 
 if __name__ == "__main__":

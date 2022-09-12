@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import psycopg2, subprocess, time, re, json, sys, argparse
+import psycopg2, subprocess, time, re, json, sys, argparse, os
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 def runBenchmarkSgxMonitor(scale_factor, transactions, warmup):
@@ -177,13 +177,19 @@ def runBenchmarkVanilla(scale_factor, transactions, warmup):
     return (latency_average, tps_wconn, tps_woconn)
 
 def installEncdbSgxMonitor():
-    cmd_str = "sudo make install"
+    if os.geteuid() == 0:
+        cmd_str = "make install"
+    else:
+        cmd_str = "sudo make install"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd, cwd="/home/flavio/SgxMonitor/src/stealthdb_toplaywith/")
 
 def installEncdbVanilla():
-    cmd_str = "sudo make install"
+    if os.geteuid() == 0:
+        cmd_str = "make install"
+    else:
+        cmd_str = "sudo make install"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd, cwd="/home/flavio/SgxMonitor/src/stealthdb_vanilla/")

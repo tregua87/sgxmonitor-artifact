@@ -21,7 +21,6 @@
 /* Global EID shared by multiple threads */
 sgx_enclave_id_t global_eid = 0;
 extern bucket_t bucket;
-int actionCounter;
 
 int initilize_ra() {
 
@@ -68,7 +67,6 @@ int main(int argc, char** argv) {
     return -1;
   }
 
-  setActionCounter(global_eid, &actionCounter);
   setBucket(global_eid, &bucket);
 
   printf("[INFO] Start warmup!\n");

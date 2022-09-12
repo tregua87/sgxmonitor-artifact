@@ -88,7 +88,7 @@ sgx_enclave_id_t createEnclave()
 void init_enclave(void){
 
 	// 0 -> single entries fashion
-    if(initialize_client(1) < 0) {
+    if(initialize_client(0) < 0) {
       printf("Enter a character before exit ...\n");
       getchar();
       exit(1);
