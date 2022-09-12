@@ -45,11 +45,13 @@ make
 make install
 popd
 
+service postgresql restart
+
 pushd  src/stealthdb_toplaywith/benchmark
 for scale_factor in 1 2 4 8 16
 do
     java -Dlog4j.configuration=log4j.properties -jar bin/oltp.jar -b tpcc -o output -s $scale_factor --config config/tpcc_config.xml --load true --execute true
-    mv results $SGXMONITOR_PATH/src/stealthdb_toplaywith/benchmark/vanilla_$scale_factor
+    mv results $SGXMONITOR_PATH/src/stealthdb_toplaywith/benchmark/sgxmonitor_$scale_factor
 done
 popd
 

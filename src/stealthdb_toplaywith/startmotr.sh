@@ -2,7 +2,7 @@
 
 
 # sudo pkill -9 monitor
-sudo pkill -9 monitor
+pkill -9 monitor
 
 mtr=$SGXMONITOR_PATH/src/monitor_batch/monitor
 dir=$SGXMONITOR_PATH/src/monitor_batch/
