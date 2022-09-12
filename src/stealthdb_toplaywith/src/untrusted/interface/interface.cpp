@@ -9,6 +9,9 @@
 #include<spawn.h>
 #include<sys/wait.h>
 
+#include <string>
+#include <iostream>
+
 #include "Dump.h"
 #include "Client.h"
 #include "Async_Bucket.h"
@@ -52,7 +55,11 @@ int launch_enclave(sgx_launch_token_t* token, int* updated)
     pid_t pid;
     char s1 []= "startmotr.sh"; 
     char *sa1[]= {s1,NULL}; 
-    int status_internal = posix_spawn(&pid,"/home/flavio/SgxMonitor/src/stealthdb_toplaywith/startmotr.sh",NULL,NULL,sa1,NULL); 
+
+    std::string sgxmonitor_src(std::getenv("SGXMONITOR_PATH"));
+    std::string full_path = sgxmonitor_src + "/src/stealthdb_toplaywith/startmotr.sh";
+
+    int status_internal = posix_spawn(&pid,full_path.c_str(),NULL,NULL,sa1,NULL); 
     if (status_internal == 0) {
         printf("Child pid: %i\n", pid);
         if (waitpid(pid, &status_internal, 0) != -1) {

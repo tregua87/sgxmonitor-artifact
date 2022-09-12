@@ -41,7 +41,6 @@ RUN apt -y remove python3-setuptools
 RUN pip3 install capstone setuptools 
 RUN pip3 install angr==9.2.6 
 RUN pip3 install timeout_decorator bloom_filter
-RUN pip3 install psycopg2 matplotlib
 
 # back to root
 WORKDIR /
@@ -54,6 +53,11 @@ RUN apt-get install -y python-dev libsdl-image1.2-dev libsdl-mixer1.2-dev \
     subversion libportmidi-dev ffmpeg libswscale-dev libavformat-dev \
     libavcodec-dev libfreetype6-dev
 
+# before doesn't work
+RUN pip3 install psycopg2
+RUN pip3 install matplotlib
+
+RUN apt-get install -y openjdk-8-jdk
 
 # last thing, back to sgxmonitor_src
 WORKDIR ${SGXMONITOR_PATH}

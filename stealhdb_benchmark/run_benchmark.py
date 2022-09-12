@@ -6,13 +6,19 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 def runBenchmarkSgxMonitor(scale_factor, transactions, warmup):
 
     # kill postgres
-    cmd_str = "sudo pkill -9 postgres"
+    if os.geteuid() == 0:
+        cmd_str = "pkill -9 postgres"
+    else:
+        cmd_str = "sudo pkill -9 postgres"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd)
 
     # start postgres
-    cmd_str = "sudo service postgresql start"
+    if os.geteuid() == 0:
+        cmd_str = "service postgresql start"
+    else:
+        cmd_str = "sudo service postgresql start"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd)
@@ -39,8 +45,8 @@ def runBenchmarkSgxMonitor(scale_factor, transactions, warmup):
     result = subprocess.run(cmd)
 
     # 3.0 start monitor
-    cmd_str = "/home/flavio/SgxMonitor/src/monitor_batch/monitor"
-    monitor_dir = "/home/flavio//SgxMonitor/src/monitor_batch/"
+    cmd_str = os.getenv('SGXMONITOR_PATH') + "/src/monitor_batch/monitor"
+    monitor_dir = os.getenv('SGXMONITOR_PATH') + "/src/monitor_batch/"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     subprocess.Popen(cmd, shell=True, stdin=None, stdout=None, stderr=None, close_fds=True, cwd=monitor_dir)
@@ -52,7 +58,10 @@ def runBenchmarkSgxMonitor(scale_factor, transactions, warmup):
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd)
 
-    cmd_str = "sudo pkill -9 monitor"
+    if os.geteuid() == 0:
+        cmd_str = "pkill -9 monitor"
+    else:
+        cmd_str = "sudo pkill -9 monitor"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd)
@@ -80,8 +89,8 @@ def runBenchmarkSgxMonitor(scale_factor, transactions, warmup):
     # result = subprocess.run(cmd)
 
     # 4.0 start monitor
-    cmd_str = "/home/flavio/SgxMonitor/src/monitor_batch/monitor"
-    monitor_dir = "/home/flavio//SgxMonitor/src/monitor_batch/"
+    cmd_str = os.getenv('SGXMONITOR_PATH') + "/src/monitor_batch/monitor"
+    monitor_dir = os.getenv('SGXMONITOR_PATH') + "/src/monitor_batch/"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     subprocess.Popen(cmd, shell=True, stdin=None, stdout=None, stderr=None, close_fds=True, cwd=monitor_dir)
@@ -101,7 +110,10 @@ def runBenchmarkSgxMonitor(scale_factor, transactions, warmup):
     tps_wconn = re.findall(r'tps = (\d+.\d+) \(including connections establishing\)', my_output)[0]
     tps_woconn = re.findall(r'tps = (\d+.\d+) \(excluding connections establishing\)', my_output)[0]
     
-    cmd_str = "sudo pkill -9 monitor"
+    if os.geteuid() == 0:
+        cmd_str = "pkill -9 monitor"
+    else:
+        cmd_str = "sudo pkill -9 monitor"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd)
@@ -112,13 +124,19 @@ def runBenchmarkSgxMonitor(scale_factor, transactions, warmup):
 def runBenchmarkVanilla(scale_factor, transactions, warmup):
     
     # kill postgres
-    cmd_str = "sudo pkill -9 postgres"
+    if os.geteuid() == 0:
+        cmd_str = "pkill -9 monitor"
+    else:
+        cmd_str = "sudo pkill -9 postgres"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd)
 
     # start postgres
-    cmd_str = "sudo service postgresql start"
+    if os.geteuid() == 0:
+        cmd_str = "service postgresql start"
+    else:
+        cmd_str = "sudo service postgresql start"
     print(cmd_str)
     cmd = cmd_str.split(' ')
     result = subprocess.run(cmd)
@@ -183,7 +201,7 @@ def installEncdbSgxMonitor():
         cmd_str = "sudo make install"
     print(cmd_str)
     cmd = cmd_str.split(' ')
-    result = subprocess.run(cmd, cwd="/home/flavio/SgxMonitor/src/stealthdb_toplaywith/")
+    result = subprocess.run(cmd, cwd=os.getenv('SGXMONITOR_PATH') + "/src/stealthdb_toplaywith/")
 
 def installEncdbVanilla():
     if os.geteuid() == 0:
@@ -192,7 +210,7 @@ def installEncdbVanilla():
         cmd_str = "sudo make install"
     print(cmd_str)
     cmd = cmd_str.split(' ')
-    result = subprocess.run(cmd, cwd="/home/flavio/SgxMonitor/src/stealthdb_vanilla/")
+    result = subprocess.run(cmd, cwd=os.getenv('SGXMONITOR_PATH') + "/src/stealthdb_vanilla/")
 
 def main():
 
