@@ -41,7 +41,7 @@ RUN apt -y remove python3-setuptools
 RUN pip3 install capstone setuptools 
 RUN pip3 install angr==9.2.6 
 RUN pip3 install timeout_decorator bloom_filter
-RUN pip3 install psycopg2
+RUN pip3 install psycopg2 matplotlib
 
 # back to root
 WORKDIR /

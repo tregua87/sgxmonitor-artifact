@@ -47,8 +47,8 @@ with open(fLen, 'r') as f:
     for c in cc:
         if len(c) == 0:
             continue
-        k = c[0]
-        l = c[1]
+        k = c[1]
+        l = c[2]
         lens[k] = int(l)
 
 with open(fPath, 'r') as f:

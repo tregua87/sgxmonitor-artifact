@@ -5,10 +5,6 @@ These are the evaluations:
 ## Fixes:
 - collect "statistics.txt" into coverage-data.txt coherently
 
-microbenchmark (`/scripts/runExperiments.py`)
-- create result folder?
-- polt: plot_action_second.py
-
 ## Security evaluation:
 Control-flow attacks (Sec. 7.1.1):
 To check if I need to compile or use a pre-compiled version.
