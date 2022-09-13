@@ -4,10 +4,6 @@ These are the evaluations:
 
 ## Fixes:
 - collect "statistics.txt" into coverage-data.txt coherently
-- stealthdbo macrobenchmark:
-    - change abs path in stealthdb_toplaywith
-    - for s from 1 2 4 8 16
-    - mv vanilla$i/toplaywith$i
 
 ## Security evaluation:
 Control-flow attacks (Sec. 7.1.1):

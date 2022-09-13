@@ -23,7 +23,7 @@ cat ../src/stealthdb_vanilla/benchmark.txt >> ../benchmark.txt
 cat ../src/stealthdb_toplaywith/benchmark.txt >> ../benchmark.txt 
 cat ../src/stealthdb_toplaywith/len_function.txt >> ../len_function.txt 
 
-echo "[INFO] Plotting microbenchmakr overhead and actions per second..."
+echo "[INFO] Plotting microbenchmark overhead and actions per second..."
 
 ./plot_micro_overhead.py ../benchmark.txt 
 ./plot_action_second.py ../benchmark.txt ../len_function.txt

@@ -97,8 +97,8 @@ def printStuff(val_x, val_y1, val_y2, title, xlabel, ylabel, deltatype, val_y1_e
     plt.tight_layout()
     # plt.show()
     file_name = title.lower().replace(" ", "_")
-    # plt.savefig(f'{file_name}.jpg', bbox_inches='tight', dpi=100, format='jpg')
-    plt.savefig(f'{file_name}.eps', bbox_inches='tight', dpi=100, format='eps')
+    plt.savefig(f'{file_name}.jpg', bbox_inches='tight', dpi=100, format='jpg')
+    # plt.savefig(f'{file_name}.eps', bbox_inches='tight', dpi=100, format='eps')
 
     avg_diff = sum(val_diff)/len(val_diff)
     # print(f"{title} : {avg_diff}")
