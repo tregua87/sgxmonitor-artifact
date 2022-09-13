@@ -48,8 +48,17 @@ We organize the flow by following the evaluation section (Section 7).
 
 ### Execution-flow attacks (Section 7.1.1)
 
-- SnakeGX
-- ShadowStack attack
+- SnakeGX, expected outcome:
+```
+[ERROR] Edges [edges-norm.txt] NOT match the model [data_snakegx/model-n.txt]
+```
+
+- ShadowStack attack expected outcome:
+```
+[ERROR] Edges [/sgxmonitor-src/src/monitor_toplaywith/edges.txt] NOT match the model [data_security/model-n.txt]
+The runtime return address is not coherent with the shadowstack value
+```
+
 
 ### Micro-benchmark (Section 7.2.1 -- Figure 4)
 

@@ -4,6 +4,7 @@ These are the evaluations:
 
 ## Fixes:
 - collect "statistics.txt" into coverage-data.txt coherently
+- in `./run_snakegxeval.sh`, if `data_snakegx` does not exist, then exit
 
 ## Security evaluation:
 Control-flow attacks (Sec. 7.1.1):

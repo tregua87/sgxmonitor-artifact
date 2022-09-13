@@ -38,7 +38,7 @@ RUN ./deploy.sh
 # for Python
 RUN apt -y install python3-pip python3
 RUN apt -y remove python3-setuptools
-RUN pip3 install capstone setuptools 
+RUN pip3 install capstone==4.0.2 setuptools 
 RUN pip3 install angr==9.2.6 
 RUN pip3 install timeout_decorator bloom_filter
 
@@ -57,7 +57,7 @@ RUN apt-get install -y python-dev libsdl-image1.2-dev libsdl-mixer1.2-dev \
 RUN pip3 install psycopg2
 RUN pip3 install matplotlib
 
-RUN apt-get install -y openjdk-8-jdk
+RUN apt-get install -y openjdk-8-jdk jq
 
 # last thing, back to sgxmonitor_src
 WORKDIR ${SGXMONITOR_PATH}

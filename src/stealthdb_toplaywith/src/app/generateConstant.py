@@ -8,7 +8,7 @@ pEnclave = "/usr/local/lib/stealthDB/enclave.signed.so"
 
 pOutput = "../include/app/ExploitConstantAut.h"
 
-pROPgadget = "/home/flavio/ROPgadget/ROPgadget.py --binary".split()
+pROPgadget = ("python3 " + os.getenv('ROPGADGET_PATH') + "/ROPgadget.py --binary").split()
 pObject = "objdump -d".split()
 pObject2 = "objdump -t".split()
 
