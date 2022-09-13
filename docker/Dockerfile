@@ -48,6 +48,7 @@ RUN git clone https://github.com/JonathanSalwan/ROPgadget.git
 WORKDIR ${ROPGADGET_PATH}
 RUN git checkout 0dc14e7ba8eb7ee1a96330e5061c0651ca63bf66
 
+RUN apt-get update
 RUN apt-get install -y python-dev libsdl-image1.2-dev libsdl-mixer1.2-dev \
     libsdl-ttf2.0-dev libsdl1.2-dev libsmpeg-dev python-numpy \
     subversion libportmidi-dev ffmpeg libswscale-dev libavformat-dev \
