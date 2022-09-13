@@ -32,6 +32,7 @@ We provide a running Docker container at this link (**TODO**). In addition, one
 can build and run the docker from scratch with:
 ```
  ./run_docker.sh
+ docker run -it --device=/dev/isgx sgx-monitor-docker
 ```
 **NOTE:** the host machine needs the Intel SGX Legacy driver
 (https://github.com/intel/linux-sgx-driver). We succesfully tested the artifcat
@@ -39,47 +40,100 @@ with last version.
 
 ## Usage
 
-We organize the flow by following the evaluation section (Section 7).
+We organize the flow by following the evaluation section (Section 7). However,
+the artifact workflow does not follow the evaluation section for technical
+reasons (i.e., we need models to verify the enclave exceution).
+
+The main docker container is `/sgxmonitor-src`. We assume all the relative paths
+and the main commands are fired from this directory.
 
 ### Preparation
 
-- Compile
-- Extract model
-
-### Execution-flow attacks (Section 7.1.1)
-
-- SnakeGX, expected outcome:
+Once enter in the docker, compile all the enclave by running this command:
 ```
-[ERROR] Edges [edges-norm.txt] NOT match the model [data_snakegx/model-n.txt]
+./run_compileall.sh
+```
+This operations should take max 10 minutes.
+
+### Model Extractor (Section 7.2.3 -- Table 2)
+
+The this script kicks the symbolic execution. This part might take few hours.
+```
+run_analysis.sh
+```
+**Important:** We implement timeout for the symbolic execution through
+`timedecoretor` of Python. However, we empirically verified that this approach
+sometime does not stop the execution. This bug is over our control. Therefore,
+if the analysis does not stop after 3 hours (or the machine memory reaches 100%
+-- `top`), we *strongly* suggset to stop the execution and rely on the
+pre-compiled models that can be downloaded with the following command:
+```
+./download_precompiled_model.sh
 ```
 
-- ShadowStack attack expected outcome:
+Once obtained the models, you can print the content of Table 2 with the following script:
 ```
-[ERROR] Edges [/sgxmonitor-src/src/monitor_toplaywith/edges.txt] NOT match the model [data_security/model-n.txt]
-The runtime return address is not coherent with the shadowstack value
+./plot_table_coverage.sh
 ```
 
 
 ### Micro-benchmark (Section 7.2.1 -- Figure 4)
 
-- Run `vanilla` vs `toplaywith` versions
+From the folder `/sgxmonitor-src`, run the following command for obtaining the results in Figure 4.
+
+```
+run_microbenchmark.sh
+```
+This command should take less than an hour to complete.
+
 
 ### Macro-benchmark (Section 7.2.2 -- Figure 5)
 
-**Note:** Some macro-benchmark requires to use human-interactive software
-(VLC and SGX-Biniax2), that is hardly scriptable. We thus omit these from the
-artifact. However, we leave the whole documented code and the instructions to
-install and try our prototypes indipendently.
+From the folder `/sgxmonitor-src`, run the following command for obtaining the results in Figure 5.
 
-- Slealthdb
+```
+run_macrobenchmark.sh
+```
+This command should take less than an hour to complete.
 
-### Model Extractor (Section 7.2.3 -- Table 2)
+**Note:**  Since VLC and SGX-Biniand2 require human-interaction, which is hardly
+scriptable. We propose only StealthDB benchmark and we include detalied
+documentation to install and try the other prototypes indipendently.
 
-- script the get static analysis
-- script to make the table
+### Execution-flow attacks (Section 7.1.1)
+
+We provide scripts to replicate the attacks in Section 7.1.1.
+
+**SnakeGX:**
+
+Run this command:
+
+```
+run_snakegxeval.sh
+```
+
+The standard output should containd this message:
+
+```
+[ERROR] Edges [edges-norm.txt] NOT match the model [data_snakegx/model-n.txt]
+```
+
+**ShadowStack attack:**
+
+Run this script:
+
+```
+run_shadowstackeval.sh
+```
+The standard output should containd this message:
+```
+[ERROR] Edges [/sgxmonitor-src/src/monitor_toplaywith/edges.txt] NOT match the model [data_security/model-n.txt]
+The runtime return address is not coherent with the shadowstack value
+```
 
 ### Use Case Analysis (Appendix B -- Table 3)
 
+**TODO:**
 - script for the complexity
 - script for the table
 

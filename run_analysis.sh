@@ -15,7 +15,7 @@ if [ ! -d "data_contact" ]; then
     mv model.txt data_contact/
     mv model-insensitive.txt data_contact/ || true
     mv model-n.txt data_contact/
-    mv loop_log.txt data_contact/
+    mv loop_log.txt data_contact/ || true
     mv statistics.txt data_contact/
 fi
 
@@ -30,7 +30,7 @@ if [ ! -d "data_libdvdcss" ]; then
     mv model.txt data_libdvdcss/
     mv model-insensitive.txt data_libdvdcss/ || true
     mv model-n.txt data_libdvdcss/
-    mv loop_log.txt data_libdvdcss/
+    mv loop_log.txt data_libdvdcss/ || true
     mv statistics.txt data_libdvdcss/
 fi
 
@@ -45,7 +45,7 @@ if [ ! -d "data_sgx-biniax2" ]; then
     mv model.txt data_sgx-biniax2/
     mv model-insensitive.txt data_sgx-biniax2/ || true
     mv model-n.txt data_sgx-biniax2/
-    mv loop_log.txt data_sgx-biniax2/
+    mv loop_log.txt data_sgx-biniax2/ || true
     mv statistics.txt data_sgx-biniax2/
 fi
 
@@ -60,7 +60,7 @@ if [ ! -d "data_stealthdb" ]; then
     mv model.txt data_stealthdb/
     mv model-insensitive.txt data_stealthdb/ || true
     mv model-n.txt data_stealthdb/
-    mv loop_log.txt data_stealthdb/
+    mv loop_log.txt data_stealthdb/ || true
     mv statistics.txt data_stealthdb/
 fi
 
@@ -75,7 +75,7 @@ if [ ! -d "data_custom" ]; then
     mv model.txt data_custom/
     mv model-insensitive.txt data_custom/ || true
     mv model-n.txt data_custom/
-    mv loop_log.txt data_custom/
+    mv loop_log.txt data_custom/ || true
     mv statistics.txt data_custom/
 fi
 
