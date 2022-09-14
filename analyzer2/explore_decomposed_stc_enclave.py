@@ -252,6 +252,8 @@ class BasicBlockNode:
                     return (s.data.offset, 'reg', i)
                 elif isinstance(s.data, pyvex.expr.Load):
                     return (None, 'mem', i)
+                elif isinstance(s.data, pyvex.expr.CCall):
+                    return (None, 'unset', 0)
                 else:
                     print("don't know with tmp")
                     iv.pp()
