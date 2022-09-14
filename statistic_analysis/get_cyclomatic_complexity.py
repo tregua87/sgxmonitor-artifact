@@ -865,13 +865,18 @@ class DecomposedEnclave(common.Analysis):
         print(f"[INFO] number of indirect call = {IC_sum}")
         # print(IC)
 
+        global use_case
+
         with open(self.dump_model, 'a+') as f:
-            f.write(f"{self.enclave_bin}|{M_avg}|{M_std}|{N_avg}|{N_std}|{E_avg}|{E_std}|{DC_avg}|{DC_std}|{DC_sum}|{IC_avg}|{IC_std}|{IC_sum}\n")
+            f.write(f"{use_case}|{M_avg}|{M_std}|{N_avg}|{N_std}|{E_avg}|{E_std}|{DC_avg}|{DC_std}|{DC_sum}|{IC_avg}|{IC_std}|{IC_sum}\n")
+            # f.write(f"{self.enclave_bin}|{M_avg}|{M_std}|{N_avg}|{N_std}|{E_avg}|{E_std}|{DC_avg}|{DC_std}|{DC_sum}|{IC_avg}|{IC_std}|{IC_sum}\n")
 
         # from IPython import embed; embed()
 
         print("failed functions:")
         print(failedfunctions)
+
+use_case = ""
 
 def main():
 
@@ -884,6 +889,7 @@ def main():
     parser.add_argument('--custom_module', '-c', required=False, type=str, help='Module with customization for enclaves', default=None)
     parser.add_argument('--loops', '-l', required=False, type=str, help='Loop info file', default=None) # maybe no need
     parser.add_argument('--function', '-n', required=False, type=str, help='Analyze a single function', default=None) 
+    parser.add_argument('--use_case', '-u', required=True, type=str, help='Use case name', default=None) 
 
 
     args = parser.parse_args()
@@ -896,6 +902,11 @@ def main():
     custom_module = args.custom_module
     loop_info = args.loops
     function = args.function
+    l_use_case args.use_case
+
+    global use_case
+    use_case = l_use_case
+
 
     global a
     a = DecomposedEnclave(enclave_bin, asm_folder, trace_bbl, custom_module, dump_model, loop_info, function)

@@ -146,7 +146,7 @@ Run this script:
 ```
 run_shadowstackeval.sh
 ```
-The standard output should containd this message:
+The standard output should contain this message:
 ```
 [ERROR] Edges [/sgxmonitor-src/src/monitor_toplaywith/edges.txt] NOT match the model [data_security/model-n.txt]
 The runtime return address is not coherent with the shadowstack value
@@ -154,9 +154,11 @@ The runtime return address is not coherent with the shadowstack value
 
 ### Use Case Analysis (Appendix B -- Table 3)
 
-**TODO:**
-- script for the complexity
-- script for the table
+Run this script to produce Table 3 in Appendix B:
+
+```
+run_statistc_analysis.sh
+```
 
 ---
 

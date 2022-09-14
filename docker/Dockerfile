@@ -58,8 +58,7 @@ RUN apt-get install -y python-dev libsdl-image1.2-dev libsdl-mixer1.2-dev \
 RUN pip3 install psycopg2
 RUN pip3 install matplotlib
 
-RUN apt-get install -y openjdk-8-jdk jq
-
+RUN apt-get install -y openjdk-8-jdk jq cloc
 RUN pip3 install prettytable
 
 # last thing, back to sgxmonitor_src
