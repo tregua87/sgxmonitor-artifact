@@ -173,6 +173,13 @@ def main():
         print("Actions_Stdev: {}".format(report_enclave.get_stdev_action()))
         print("Edge_Avg: {}".format(report_enclave.get_average_edge()))
         print("Edge_Stdev: {}".format(report_enclave.get_stdev_edge()))
+
+        with open('coverage.txt', 'w') as f:
+            f.write("Coverage: {}\n".format(report_enclave.get_coverage()))
+            f.write("Actions_Avg: {}\n".format(report_enclave.get_average_action()))
+            f.write("Actions_Stdev: {}\n".format(report_enclave.get_stdev_action()))
+            f.write("Edge_Avg: {}\n".format(report_enclave.get_average_edge()))
+            f.write("Edge_Stdev: {}\n".format(report_enclave.get_stdev_edge()))
         
     else:
         if fnc not in m_mgt:

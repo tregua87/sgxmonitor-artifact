@@ -60,5 +60,7 @@ RUN pip3 install matplotlib
 
 RUN apt-get install -y openjdk-8-jdk jq
 
+RUN pip3 install prettytable
+
 # last thing, back to sgxmonitor_src
 WORKDIR ${SGXMONITOR_PATH}
