@@ -1,0 +1,5 @@
+n_function 56
+n_static function 6
+tot. anal time 3404.2870523929596 [s]
+avg. anal time 63.04235282209184 [s]
+std. dev anal time 169.62184001450652

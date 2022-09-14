@@ -8,6 +8,12 @@ else
     echo "[INFO] aesm_service already running!!"
 fi 
 
+# check stealthdb model
+if [ ! -d "analyzer3/data_stealthdb" ]; then
+    echo "[ERROR] StealthDB not analyzed, analyze the enclave or import pre-computed models"
+    exit 1
+fi
+
 SNAKEGX_ENCLAVE=/usr/local/lib/stealthDB/enclave.signed.so
 DATA_SNAKEGX=data_snakegx
 
@@ -57,18 +63,6 @@ pkill -9 monitor
 
 
 pushd analyzer3
-# PRENTEND IT DOES NOT EXISTS, IT SHOULD BE DONE IN ./run_analysis.sh
-# rm loops.txt || true
-# ./extract_loops.py -e $SNAKEGX_ENCLAVE
-# time./explore_decomposed_sym_enclave.py -e $SNAKEGX_ENCLAVE -l loops.txt
-# ./normalize_model.py -o model-n.txt -r model.txt model-insensitive.txt
-# mkdir $DATA_SNAKEGX
-# mv loops.txt $DATA_SNAKEGX/
-# mv model.txt $DATA_SNAKEGX/
-# mv model-insensitive.txt $DATA_SNAKEGX/ || true
-# mv model-n.txt $DATA_SNAKEGX/
-# mv loop_log.txt $DATA_SNAKEGX/ || true
-# mv statistics.txt $DATA_SNAKEGX/
 
 echo "[INFO] Validate the traces"
 FIRST_ACTION=$(jq ."enter_enclave" $DATA_SNAKEGX/model-n.txt  | grep "T\[" | head -1 | tr -d "\" ")
