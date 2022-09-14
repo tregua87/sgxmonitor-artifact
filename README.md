@@ -82,11 +82,11 @@ The script kicks the symbolic execution. This part might take few hours.
 ./run_analysis.sh
 ```
 **Important:** We implement timeout for the symbolic execution through
-`timedecoretor` of Python. However, we observed that this approach sometime does
-not stop the execution. This bug is over our control. Therefore, if the analysis
-does not stop after 3 hours (or the machine memory reaches 100% -- `top`), we
-*strongly* suggest stopping the execution (i.e., `Ctrl+C`) and use the
-pre-compiled models, that can be installed with the following command:
+`@timeout_decorator.timeout` of Python. However, we observed that this approach
+sometime does not stop the execution. This bug is over our control. Therefore,
+if the analysis does not stop after 3 hours (or the machine memory reaches 100%
+-- `top`), we *strongly* suggest stopping the execution (i.e., `Ctrl+C`) and use
+the pre-compiled models, that can be installed with the following command:
 ```
 ./get_precompiled_model.sh
 ```
