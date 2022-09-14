@@ -902,7 +902,7 @@ def main():
     custom_module = args.custom_module
     loop_info = args.loops
     function = args.function
-    l_use_case args.use_case
+    l_use_case = args.use_case
 
     global use_case
     use_case = l_use_case

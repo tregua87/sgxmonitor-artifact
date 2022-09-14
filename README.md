@@ -67,7 +67,7 @@ This operation should take max 10 minutes.
 
 The script kicks the symbolic execution. This part might take few hours.
 ```
-run_analysis.sh
+./run_analysis.sh
 ```
 **Important:** We implement timeout for the symbolic execution through
 `timedecoretor` of Python. However, we observed that this approach sometime does
@@ -90,7 +90,7 @@ Once obtained the models, you can print the content of Table 2 with the followin
 From the folder `/sgxmonitor-src`, run the following command for obtaining the results in Figure 4.
 
 ```
-run_microbenchmark.sh
+./run_microbenchmark.sh
 ```
 This command should take less than an hour to complete.
 
@@ -106,7 +106,7 @@ It will automatically download all the images from the running Docker.
 From the folder `/sgxmonitor-src`, run the following command for obtaining the results in Figure 5.
 
 ```
-run_macrobenchmark.sh
+./run_macrobenchmark.sh
 ```
 This command should take less than an hour to complete.
 
@@ -130,7 +130,7 @@ We provide scripts to replicate the attacks in Section 7.1.1.
 Run this command:
 
 ```
-run_snakegxeval.sh
+./run_snakegxeval.sh
 ```
 
 The standard output should containd this message:
@@ -144,7 +144,7 @@ The standard output should containd this message:
 Run this script:
 
 ```
-run_shadowstackeval.sh
+./run_shadowstackeval.sh
 ```
 The standard output should contain this message:
 ```
@@ -157,7 +157,7 @@ The runtime return address is not coherent with the shadowstack value
 Run this script to produce Table 3 in Appendix B:
 
 ```
-run_statistc_analysis.sh
+./run_statistc_analysis.sh
 ```
 
 ---
