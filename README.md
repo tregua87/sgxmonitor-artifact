@@ -94,6 +94,12 @@ run_microbenchmark.sh
 ```
 This command should take less than an hour to complete.
 
+**Only for remote machine:**
+If you are in the remote machine, the host contains this script:
+```
+./download_images_from_docker.sh
+```
+It will automatically download all the images from the running Docker.
 
 ### Macro-benchmark (Section 7.2.2 -- Figure 5)
 
@@ -107,6 +113,13 @@ This command should take less than an hour to complete.
 **Note:**  Since VLC and SGX-Biniax2 require human-interaction, we include only
 StealthDB benchmark. We will include detailed documentation to install and try
 the other prototypes independently.
+
+**Only for remote machine:**
+If you are in the remote machine, the host contains this script:
+```
+./download_images_from_docker.sh
+```
+It will automatically download all the images from the running Docker.
 
 ### Execution-flow attacks (Section 7.1.1)
 
