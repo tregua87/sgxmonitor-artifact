@@ -20,21 +20,33 @@ one that most fits their needs.
 Use the code below to access the machine: 
 
 ```
-ssh -h <magic magic magic>
-docker run -it sgx-monitor-artifact
+ssh reviewer@2.tcp.eu.ngrok.io -p 16856
+# password from artifact abstract
+docker run -it --device=/dev/isgx sgx-monitor-docker
 ```
 
-We set a dedicated user, called `reviewer`. whose password is stated in the
+We set a dedicated user, called `reviewer`, whose password is stated in the
 artifact abstract (for security reason not published here).  `reviewer` does not
-have `root` permits (i.e., no `sudo`), it can `tmux` tho. We suggest to run the
-docker inside a `tmux` session for keeping the session alive.
+have `root` permits (i.e., no `sudo`), it can `tmux` tho. We suggest running the
+docker inside a `tmux` session.
 
 From here, please follow the instruction in [usage](#usage).
 
 ### Download Docker Container
 
-We provide a running Docker container at this link (**TODO**). In addition, one
-can build and run the docker from scratch with:
+We provide the Docker at this link:
+```
+https://drive.google.com/file/d/15BCcA4s6VG7YG2V0PkiekITkJdY9fZHE/view?usp=sharing
+MD5 002ff18bd9741c87145bd486dc50441f
+```
+Once downloaded `sgx-monitor-artifact.tar.gz`, follow these commands to load and
+run the container:
+```
+docker load < sgx-monitor-artifact.tar.gz
+docker run -it --device=/dev/isgx sgx-monitor-docker
+```
+
+Alternatively, one can build and run the docker from scratch with:
 ```
  ./run_docker.sh
  docker run -it --device=/dev/isgx sgx-monitor-docker
