@@ -27,7 +27,7 @@ docker run -it sgx-monitor-artifact
 We set a dedicated user, called `reviewer`. whose password is stated in the
 artifact abstract (for security reason not published here).  `reviewer` does not
 have `root` permits (i.e., no `sudo`), it can `tmux` tho. We suggest to run the
-docker insider a `tmux` session for keeping the session alive.
+docker inside a `tmux` session for keeping the session alive.
 
 From here, please follow the instruction in [usage](#usage).
 
@@ -47,12 +47,13 @@ From here, please follow the instruction in [usage](#usage).
 
 ## Usage
 
-We organize the flow by following the evaluation section (Section 7). However,
-the artifact workflow does not follow the evaluation section for technical
-reasons (i.e., we need models to verify the enclave exceution).
+We organize the artifact upon the evaluation section (Section 7). However, we
+did not strictly follow the evaluation section for technical reasons (i.e., we
+need models to verify the enclave execution). Each step in the artifact
+evaluation specifies which experiment in Section 7 it refers to.
 
-The main docker container is `/sgxmonitor-src`. We assume all the relative paths
-and the main commands are fired from this directory.
+The main folder in the docker container is `/sgxmonitor-src`. We assume all the
+relative paths and the main commands are fired from this directory.
 
 ### Preparation
 
@@ -60,22 +61,22 @@ Once enter in the docker, compile all the enclave by running this command:
 ```
 ./run_compileall.sh
 ```
-This operations should take max 10 minutes.
+This operation should take max 10 minutes.
 
 ### Model Extractor (Section 7.2.3 -- Table 2)
 
-The this script kicks the symbolic execution. This part might take few hours.
+The script kicks the symbolic execution. This part might take few hours.
 ```
 run_analysis.sh
 ```
 **Important:** We implement timeout for the symbolic execution through
-`timedecoretor` of Python. However, we empirically verified that this approach
-sometime does not stop the execution. This bug is over our control. Therefore,
-if the analysis does not stop after 3 hours (or the machine memory reaches 100%
--- `top`), we *strongly* suggset to stop the execution and rely on the
-pre-compiled models that can be downloaded with the following command:
+`timedecoretor` of Python. However, we observed that this approach sometime does
+not stop the execution. This bug is over our control. Therefore, if the analysis
+does not stop after 3 hours (or the machine memory reaches 100% -- `top`), we
+*strongly* suggest stopping the execution (i.e., `Ctrl+C`) and use the
+pre-compiled models, that can be installed with the following command:
 ```
-./download_precompiled_model.sh
+./get_precompiled_model.sh
 ```
 
 Once obtained the models, you can print the content of Table 2 with the following script:
@@ -103,9 +104,9 @@ run_macrobenchmark.sh
 ```
 This command should take less than an hour to complete.
 
-**Note:**  Since VLC and SGX-Biniand2 require human-interaction, which is hardly
-scriptable. We propose only StealthDB benchmark and we include detalied
-documentation to install and try the other prototypes indipendently.
+**Note:**  Since VLC and SGX-Biniax2 require human-interaction, we include only
+StealthDB benchmark. We will include detailed documentation to install and try
+the other prototypes independently.
 
 ### Execution-flow attacks (Section 7.1.1)
 

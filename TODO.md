@@ -7,7 +7,7 @@ These are the evaluations:
 - in `./run_snakegxeval.sh`, if `data_snakegx` does not exist, then exit
 - nice to shadowstack experiment
 - script for printing models
-- prepared pre-computed models and find a way to download them
+- prepared pre-computed models and find a way to download them `get_precompiled_model.sh`
 - export images CONTAINER_ID=$(docker ps -f "ancestor=sgx-monitor-docker" --format '{{.ID}}')
 - for secureenclave: get address with `RET_FUNC=$(objdump -M intel -d enclave.signed.so | grep "48 8b 7d 08" | head -1 | awk -F ":" '{print $1}' | tr -d " ")' and set ad -D var in Makefile
 - guide to install VLC and SGX-Biniax
