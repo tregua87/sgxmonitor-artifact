@@ -21,7 +21,7 @@ rm -Rf $SGXMONITOR_PATH/analyzer3/$DATA_SECURITY || true
 pushd src/monitor_toplaywith
 echo "[INFO] Running monitor"
 make
-./monitor &> /dev/null &
+nice -n -10 ./monitor &> /dev/null &
 popd
 
 sleep 10
@@ -30,7 +30,7 @@ sleep 10
 pushd src/security_traced_toplaywith
 echo "[INFO] Running target"
 make
-./app || true
+nice -n -10 ./app || true
 popd
 
 sleep 10
