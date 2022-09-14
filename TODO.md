@@ -11,6 +11,8 @@ These are the evaluations:
 - export images CONTAINER_ID=$(docker ps -f "ancestor=sgx-monitor-docker" --format '{{.ID}}')
 - for secureenclave: get address with `RET_FUNC=$(objdump -M intel -d enclave.signed.so | grep "48 8b 7d 08" | head -1 | awk -F ":" '{print $1}' | tr -d " ")' and set ad -D var in Makefile
 - guide to install VLC and SGX-Biniax
+- analyzer2 -> fix for contact?
+
 ## Trace validation
 1. extract model symex `explore_decomposed_sym_enclave.py`
 3. normalize models (make scripts?)

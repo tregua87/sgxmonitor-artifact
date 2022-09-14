@@ -17,14 +17,19 @@ one that most fits their needs.
 
 ### SSH Access
 
-Use the code below to access the machine
+Use the code below to access the machine: 
+
 ```
 ssh -h <magic magic magic>
 docker run -it sgx-monitor-artifact
 ```
 
-From here, please follow the instruction in [usage](#usage).
+We set a dedicated user, called `reviewer`. whose password is stated in the
+artifact abstract (for security reason not published here).  `reviewer` does not
+have `root` permits (i.e., no `sudo`), it can `tmux` tho. We suggest to run the
+docker insider a `tmux` session for keeping the session alive.
 
+From here, please follow the instruction in [usage](#usage).
 
 ### Download Docker Container
 
@@ -37,6 +42,8 @@ can build and run the docker from scratch with:
 **NOTE:** the host machine needs the Intel SGX Legacy driver
 (https://github.com/intel/linux-sgx-driver). We succesfully tested the artifcat
 with last version.
+
+From here, please follow the instruction in [usage](#usage).
 
 ## Usage
 
