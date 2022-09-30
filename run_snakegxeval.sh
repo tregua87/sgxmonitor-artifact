@@ -10,12 +10,15 @@ fi
 
 # check stealthdb model
 if [ ! -d "analyzer3/data_stealthdb" ]; then
-    echo "[ERROR] StealthDB not analyzed, analyze the enclave or import pre-computed models"
+    echo "[ERROR] StealthDB not analyzed, run either:"
+    echo "[ERROR] ./run_analysis.sh"
+    echo "[ERROR] or"
+    echo "[ERROR] ./get_precompiled_model.sh"
     exit 1
 fi
 
 SNAKEGX_ENCLAVE=/usr/local/lib/stealthDB/enclave.signed.so
-DATA_SNAKEGX=data_snakegx
+DATA_SNAKEGX=data_stealthdb
 
 # clean stuffs
 rm -f $SGXMONITOR_PATH/src/monitor_toplaywith/edges.txt || true
