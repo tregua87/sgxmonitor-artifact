@@ -8,29 +8,11 @@ installing and exercising the artifact.
 
 ## Installation
 
-We provide three options to install the artifcat. Reviewers can choose the
+We provide three options to install the artifcat. You can choose the
 one that most fits their needs.
 
-- SSH access to a precunfigured environment ([here](#ssh-access))
 - Downloading docker container ([here](#download-docker-container))
 - Installing from source ([here](INSTALLATION.md))
-
-### SSH Access
-
-Use the code below to access the machine: 
-
-```
-ssh reviewer@2.tcp.eu.ngrok.io -p 16856
-# password from artifact abstract
-docker run -it --device=/dev/isgx sgx-monitor-docker
-```
-
-We set a dedicated user, called `reviewer`, whose password is stated in the
-artifact abstract (for security reason not published here).  `reviewer` does not
-have `root` permits (i.e., no `sudo`), it can `tmux` tho. We suggest running the
-docker inside a `tmux` session.
-
-From here, please follow the instruction in [usage](#usage).
 
 ### Download Docker Container
 
